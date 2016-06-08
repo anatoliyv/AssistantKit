@@ -9,15 +9,15 @@
 
 
 Easy way to detect device environment:
-  [+] Device model and version
-  [+] Screen resolution
-  [+] Interface orientation
-  [+] iOS version
+- [ ] Device model and version
+- [ ] Screen resolution
+- [ ] Interface orientation
+- [ ] iOS version
 
 Helps to:
-   [+] work with bundle Document and Cache folders
-   [+] easy way to assign sizes for different devices
-   [+] compare iOS versions in runtime
+- [ ] work with bundle Document and Cache folders
+- [ ] easy way to assign sizes for different devices
+- [ ] compare iOS versions in runtime
 
 ## Installation
 
