@@ -119,14 +119,14 @@ default:           print("Other display")
 
 ### Detecting screen family
 
-Owten it's required to bing different parameters for specific screen resolution.
-There are 2 methods that will help you to detect what parameter to use. But
-wirst of all let me introduce ScreenFamily.
+Often it is required to assign different parameters based on specific screen resolution.
+There are 2 methods that will help you to detect what parameters to use. But
+first of all let me introduce ScreenFamily.
 
-This is enum that breaks all possible screen resolutions into 3 groups:
-- ScreenFamily.*Small*:        All iPhones/iPods without iPhone 6Plus
-- ScreenFamily.*Medium*:       iPhone 6Plus and iPad Mini
-- ScreenFamily.*Big*:          iPad and iPad Pro
+This is enum that breaks all possible screens into 3 groups:
+- ScreenFamily.Small:        All iPhones/iPods without iPhone 6Plus
+- ScreenFamily.Medium:       iPhone 6Plus and iPad Mini
+- ScreenFamily.Big:          iPad and iPad Pro
 
 You can detect screen family by:
 
@@ -134,7 +134,7 @@ You can detect screen family by:
 let family = Device.screen.family
 ```
 
-And now back to methods. To assign different values for iPhone and iPad devices you can use this method:
+And now back to methods. To assign different values for iPhone and iPad devices you can use:
 
 ```
 let size = Device.size(13, pad: 15)
@@ -156,7 +156,6 @@ In this case for small screens your font will be 12.0, for medium 14.0 and for b
 assign small value.
 
 ### Screen scale
-
 
 ```
 let scale = Device.scale
