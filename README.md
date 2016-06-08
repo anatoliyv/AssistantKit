@@ -1,4 +1,4 @@
-# AssistantKit
+![AssistantKit](https://cloud.githubusercontent.com/assets/1595032/15893439/631458ec-2d88-11e6-8566-4023999df805.png)
 
 [![CI Status](http://img.shields.io/travis/Anatoliy Voropay/AssistantKit.svg?style=flat)](https://travis-ci.org/Anatoliy Voropay/AssistantKit)
 [![Version](https://img.shields.io/cocoapods/v/AssistantKit.svg?style=flat)](http://cocoapods.org/pods/AssistantKit)
