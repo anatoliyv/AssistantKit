@@ -37,11 +37,11 @@ To get current device type use:
 let device = Device.type
 
 switch device {
-case .Phone: print("iPhone")
-case .Pad: print("iPad")
-case .Pod: print("iPod")
-case .Simulator: print("Simulator")
-default: print("Unknown")
+case .Phone:      print("iPhone")
+case .Pad:        print("iPad")
+case .Pod:        print("iPod")
+case .Simulator:  print("Simulator")
+default:          print("Unknown")
 }
 ```
 
