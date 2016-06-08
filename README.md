@@ -202,7 +202,6 @@ Write me or make a pull request if you have any ideas what else functionality ca
 
 ## Author
 
-Anatoliy Voropay,
 - anatoliy.voropay@gmail.com
 - [@anatoliy_v](https://twitter.com/anatoliy_v)
 - [LinkedIn](https://www.linkedin.com/in/anatoliyvoropay)
