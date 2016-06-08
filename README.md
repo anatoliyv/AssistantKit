@@ -9,14 +9,14 @@
 
 
 Easy way to detect device environment:
-- [ ] [Device model and version](https://github.com/anatoliyv/AssistantKit#device-version-information)
-- [ ] [Screen resolution](https://github.com/anatoliyv/AssistantKit#device-screen-parameters)
-- [ ] [Interface orientation](https://github.com/anatoliyv/AssistantKit#interface-orientation)
-- [ ] [iOS version](https://github.com/anatoliyv/AssistantKit#detecting-and-comparing-ios-version)
+- [x] [Device model and version](https://github.com/anatoliyv/AssistantKit#device-version-information)
+- [x] [Screen resolution](https://github.com/anatoliyv/AssistantKit#device-screen-parameters)
+- [x] [Interface orientation](https://github.com/anatoliyv/AssistantKit#interface-orientation)
+- [x] [iOS version](https://github.com/anatoliyv/AssistantKit#detecting-and-comparing-ios-version)
 
 Helps to:
-- [ ] work with bundle Document and Cache folders
-- [ ] [easy way to assign sizes for different devices](https://github.com/anatoliyv/AssistantKit#detecting-screen-family)
+- [x] work with bundle Document and Cache folders
+- [x] [easy way to assign sizes for different devices](https://github.com/anatoliyv/AssistantKit#detecting-screen-family)
 
 ## Installation
 
