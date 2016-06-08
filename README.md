@@ -15,7 +15,7 @@ Easy way to detect device environment:
 - [x] [iOS version](https://github.com/anatoliyv/AssistantKit#detecting-and-comparing-ios-version)
 
 Helps to:
-- [x] work with bundle Document and Cache folders
+- [x] [work with bundle Document and Cache folders](https://github.com/anatoliyv/AssistantKit/blob/master/README.md#working-with-directories)
 - [x] [easy way to assign sizes for different devices](https://github.com/anatoliyv/AssistantKit#detecting-screen-family)
 
 ## Installation
