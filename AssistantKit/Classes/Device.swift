@@ -147,11 +147,32 @@ import UIKit
  detect it:
  
  ```
+ Device.osVersionString                         // Current version as a String i.e. "9.3"
+ Device.osVersion                               // Current version as a Float i.e. 9.3
+
  Device.osVersionEqualTo("9.0")                 // true if iOS 9.0
  Device.osVersionGreaterThan("9.0")             // true if iOS > 9.0
  Device.osVersionGreaterThanOrEqualTo("9.0")    // true if iOS >= 9.0
  Device.osVersionLessThan("9.0")                // true if iOS < 9.0
  Device.osVersionLessThanOrEqualTo("9.0")       // true if iOS <= 9.0
+ ```
+ 
+ **Working with directories**
+ 
+ There are few helper methods to make access to Documents and Caches directoies easier.
+ Take a look at code examples:
+ 
+ ```
+ Bundle.documentsDirectoryURL           // URL to .DocumentDirectory
+ Bundle.documentsDirectoryPath          // Path to .DocumentDirectory
+ Bundle.cachesDirectoryURL              // URL to .CachesDirectory
+ Bundle.cachesDirectoryPath             // Path to .CachesDirectory
+ 
+ let filePath = "directory/filename.txt"
+ 
+ Bundle.filePathInDocumentsDirectory(toFile: filePath)  // Path to file in .DocumentDirectory
+ Bundle.filePathInCachesDirectory(toFile: filePath)     // Path to file in .CachesDirectory
+
  ```
 
  */
