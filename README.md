@@ -189,6 +189,9 @@ You can detect iOS version in runtime. There are 5 different methods that will h
 detect it:
 
 ```
+Device.osVersionString                         // Current version as a String i.e. "9.3"
+Device.osVersion                               // Current version as a Float i.e. 9.3
+
 Device.osVersionEqualTo("9.0")                 // true if iOS 9.0
 Device.osVersionGreaterThan("9.0")             // true if iOS > 9.0
 Device.osVersionGreaterThanOrEqualTo("9.0")    // true if iOS >= 9.0
