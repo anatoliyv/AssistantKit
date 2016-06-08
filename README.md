@@ -209,6 +209,7 @@ Write me or make a pull request if you have any ideas what else functionality ca
 ## More Device-detecting libs
 - [Ehkoo's Device](https://github.com/Ekhoo/Device)
 - [Schickling's Device.swift](https://github.com/schickling/Device.swift)
+- [DeviceKit](https://github.com/dennisweissmann/DeviceKit)
 
 ## License
 
