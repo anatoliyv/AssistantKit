@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AssistantKit_Example' do
+  pod 'AssistantKit', :path => '../'
+
+  target 'AssistantKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
