@@ -199,6 +199,23 @@ Device.osVersionLessThan("9.0")                // true if iOS < 9.0
 Device.osVersionLessThanOrEqualTo("9.0")       // true if iOS <= 9.0
 ```
 
+### Working with directories
+ 
+There are few helper methods to make access to Documents and Caches directoies easier.
+Take a look at code examples:
+ 
+```
+Bundle.documentsDirectoryURL           // URL to .DocumentDirectory
+Bundle.documentsDirectoryPath          // Path to .DocumentDirectory
+Bundle.cachesDirectoryURL              // URL to .CachesDirectory
+Bundle.cachesDirectoryPath             // Path to .CachesDirectory
+ 
+let filePath = "directory/filename.txt"
+Bundle.filePathInDocumentsDirectory(toFile: filePath)  // Path to file in .DocumentDirectory
+Bundle.filePathInCachesDirectory(toFile: filePath)     // Path to file in .CachesDirectory
+
+```
+
 ## TODO
 
 Write me or make a pull request if you have any ideas what else functionality can be useful in this repo.
