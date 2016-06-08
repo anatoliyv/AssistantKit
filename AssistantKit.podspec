@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AssistantKit'
-  s.version          = '0.1.0'
+  s.version          = '0.0.1'
   s.summary          = 'Easy way to detect and work with  device environments written in Swift'
 
 # This description is used to generate tags and improve search results.
@@ -41,6 +41,6 @@ Will be useful to:
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.frameworks = 'UIKit'
+  # s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
