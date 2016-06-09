@@ -134,18 +134,32 @@ You can detect screen family by:
 let family = Device.screen.family
 ```
 
-And now back to methods. To assign different values for iPhone and iPad devices you can use:
+And now back to methods:
+
+#### Value by device type
+
+To assign different values for iPhone and iPad devices you can use:
 
 ```
+// Method definition
+static public func size<T: AnyObject>(phone phone: T, pad: T) -> T
+
+// Usage example
 let size = Device.size(13, pad: 15)
 let font = UIFont(name: "Arial", size: CGFloat(size))
 ```
 
 On iPhones your font size will be 13.0, on iPads 15.0
 
+#### Value by ScreenFamily
+
 Another method based on ScreenFamily:
 
 ```
+// Method definition
+static public func size<T: AnyObject>(small small: T, medium: T, big: T) -> T
+
+// Usage example
 let otherSize = Device.size(12, medium: 14, big: 15)
 let otherFont = UIFont(name: "Arial", size: CGFloat(otherSize))
 ```
@@ -154,6 +168,34 @@ In this case for small screens your font will be 12.0, for medium 14.0 and for b
 
 *Important notice:* By default if screen family can not be detected `size` method will
 assign small value.
+
+#### Value by exact screen size
+
+Also you can return value for specific screen size. There is another size method you can use.
+Incoming parameter should be a screen size. If it is not defined nearest value will be used. Code example:
+
+```
+// Method definition
+static public func size<T: AnyObject>(sizes sizes: [Screen : T]) -> T?
+
+// Usage example
+let sizes: [Screen:AnyObject] = [
+   .Inches_3_5: 12,
+   .Inches_4_0: 13,
+   .Inches_4_7: 14,
+   .Inches_9_7: 15
+  ]
+let exactSize = Device.size(sizes: sizes) as! Int
+let _ = UIFont(name: "Arial", size: CGFloat(exactSize))
+```
+
+*Important notice:* This method can return nil if you pass empty array as a parameter. Be careful with implicit unwrapping.
+
+After that your font will be:
+- 12 for 3.5" inches (older devices)
+- 13 for iPhone 5, 5S
+- 14 for iPhone 6, 6Plus and iPad mini
+- and 15 for other iPads
 
 ### Screen scale
 
@@ -200,16 +242,16 @@ Device.osVersionLessThanOrEqualTo("9.0")       // true if iOS <= 9.0
 ```
 
 ### Working with directories
- 
+
 There are few helper methods to make access to Documents and Caches directoies easier.
 Take a look at code examples:
- 
+
 ```
 Bundle.documentsDirectoryURL           // URL to .DocumentDirectory
 Bundle.documentsDirectoryPath          // Path to .DocumentDirectory
 Bundle.cachesDirectoryURL              // URL to .CachesDirectory
 Bundle.cachesDirectoryPath             // Path to .CachesDirectory
- 
+
 let filePath = "directory/filename.txt"
 Bundle.filePathInDocumentsDirectory(toFile: filePath)  // Path to file in .DocumentDirectory
 Bundle.filePathInCachesDirectory(toFile: filePath)     // Path to file in .CachesDirectory
