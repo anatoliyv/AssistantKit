@@ -90,9 +90,9 @@ default:            print("Unknown device")
 There are few properties that detect device type
 
 ```
-Device.isPhone     // true for iPhones
-Device.isPad       // true for iPads
-Device.isPadPro    // true for iPadPros
+Device.isPhone     // true for iPhones even if it's Simulator
+Device.isPad       // true for iPads even if it's Simulator
+Device.isPadPro    // true for iPadPros even if it's Simulator
 Device.isPod       // true for Pods
 Device.isSimulator // true for Simulators
 ```
