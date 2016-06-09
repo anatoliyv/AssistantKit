@@ -260,6 +260,10 @@ Bundle.filePathInCachesDirectory(toFile: filePath)     // Path to file in .Cache
 
 ## TODO
 
+- [x] Detect battery state
+- [x] Add tvOS support
+- [x] Detect XCTest environment
+
 Write me or make a pull request if you have any ideas what else functionality can be useful in this repo.
 
 ## Author
