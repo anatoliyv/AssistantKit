@@ -120,7 +120,7 @@ default:           print("Other display")
 ### Detecting screen family
 
 Often it is required to assign different parameters based on specific screen resolution.
-There are 2 methods that will help you to detect what parameters to use. But
+There are 3 methods that will help you to detect what parameters to use. But
 first of all let me introduce ScreenFamily.
 
 This is enum that breaks all possible screens into 3 groups:
@@ -145,7 +145,7 @@ To assign different values for iPhone and iPad devices you can use:
 static public func size<T: AnyObject>(phone phone: T, pad: T) -> T
 
 // Usage example
-let size = Device.size(13, pad: 15)
+let size = Device.size(iphone: 13, pad: 15)
 let font = UIFont(name: "Arial", size: CGFloat(size))
 ```
 
@@ -160,7 +160,7 @@ Another method based on ScreenFamily:
 static public func size<T: AnyObject>(small small: T, medium: T, big: T) -> T
 
 // Usage example
-let otherSize = Device.size(12, medium: 14, big: 15)
+let otherSize = Device.size(small: 12, medium: 14, big: 15)
 let otherFont = UIFont(name: "Arial", size: CGFloat(otherSize))
 ```
 
