@@ -66,8 +66,17 @@ class ViewController: UIViewController {
         print()
 
         print("family:          " + String(Device.screen.family.rawValue))
-        print("size for device: " + String(Device.size("phone size", pad: "pad size")))
-        print("size for family: " + String(Device.size("small family", medium: "medium family", big: "big family")))
+        print("size for device: " + String(Device.size(phone: "phone size", pad: "pad size")))
+        print("size for family: " + String(Device.size(small: "small family", medium: "medium family", big: "big family")))
+
+        let sizes: [Screen:AnyObject] = [
+            .Inches_3_5: 12,
+            .Inches_4_0: 13,
+            .Inches_5_5: 14,
+            .Inches_9_7: 15
+        ]
+        let exactSize = Device.size(sizes: sizes) as! Int
+        print("exact size:      " + String(exactSize))
         print()
     }
 
@@ -86,9 +95,9 @@ class ViewController: UIViewController {
         let version = Device.osVersionString
 
         print("*** iOS")
-        print("OS:              " + String(Device.osVersion))
-        print("OS String:       " + String(Device.osVersionString))
-        print("> 9.0:           " + String(Device.osVersionGreaterThan("9.0")))
+        print("OS               " + String(Device.osVersion))
+        print("OS String        " + String(Device.osVersionString))
+        print("> 9.0            " + String(Device.osVersionGreaterThan("9.0")))
         print("< 9.0            " + String(Device.osVersionLessThan("9.0")))
         print("==               " + String(Device.osVersionEqualTo(version)))
         print(">= 9.0           " + String(Device.osVersionEqualTo("9.0")))
@@ -154,11 +163,20 @@ class ViewController: UIViewController {
         default:  print("Unknown scale")
         }
 
-        let size = Device.size(13, pad: 15)
-        let font = UIFont(name: "Arial", size: CGFloat(size))
+        let size = Device.size(phone: 13, pad: 15)
+        let _ = UIFont(name: "Arial", size: CGFloat(size))
 
-        let otherSize = Device.size(12, medium: 14, big: 15)
-        let otherFont = UIFont(name: "Arial", size: CGFloat(otherSize))
+        let otherSize = Device.size(small: 12, medium: 14, big: 15)
+        let _ = UIFont(name: "Arial", size: CGFloat(otherSize))
+
+        let sizes: [Screen:AnyObject] = [
+            .Inches_3_5: 12,
+            .Inches_4_0: 13,
+            .Inches_5_5: 14,
+            .Inches_9_7: 15
+        ]
+        let exactSize = Device.size(sizes: sizes) as! Int
+        let _ = UIFont(name: "Arial", size: CGFloat(exactSize))
     }
 }
 

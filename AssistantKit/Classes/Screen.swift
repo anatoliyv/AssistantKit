@@ -174,17 +174,17 @@ extension Device {
 extension Device {
 
     /// Returns size for a specific device (iPad or iPhone/iPod)
-    static public func size<T: AnyObject>(phone: T, pad: T) -> T {
+    static public func size<T: AnyObject>(phone phone: T, pad: T) -> T {
         return ( Device.isPad ? pad : phone )
     }
 
     /**
-     Return size depending on specific screen size.
+     Return size depending on specific screen family.
      If Screen size is unknown (in this case ScreenFamily will be unknown too) it will return small value
 
      - Seealso: Screen, ScreenFamily
      */
-    static public func size<T: AnyObject>(small: T, medium: T, big: T) -> T {
+    static public func size<T: AnyObject>(small small: T, medium: T, big: T) -> T {
         let family = Device.screen.family
 
         switch family {
@@ -201,4 +201,49 @@ extension Device {
             return small
         }
     }
+
+    /**
+     Return value for specific screen size. Incoming parameter should be a screen size. If it is not defined 
+     nearest value will be used. Code example:
+     
+     ```
+     let sizes: [Screen:AnyObject] = [
+         .Inches_3_5: 12,
+         .Inches_4_0: 13,
+         .Inches_4_7: 14,
+         .Inches_9_7: 15
+        ]
+     let exactSize = Device.size(sizes: sizes) as! Int
+     let _ = UIFont(name: "Arial", size: CGFloat(exactSize))
+     ```
+     
+     After that your font will be:
+     * 12 for 3.5" inches (older devices)
+     * 13 for iPhone 5, 5S
+     * 14 for iPhone 6, 6Plus and iPad mini
+     * and 15 for other iPads
+
+     - Seealso: Screen
+    */
+    static public func size<T: AnyObject>(sizes sizes: [Screen : T]) -> T? {
+        let screen = Device.screen
+        var nearestValue: T?
+        var distance = CGFloat.max
+
+        for (key, value) in sizes {
+            // Prevent from iterating whole array
+            if (key == screen) {
+                return value
+            }
+
+            let actualDistance = fabs(key.rawValue - screen.rawValue)
+            if actualDistance < distance {
+                nearestValue = value
+                distance = actualDistance
+            }
+        }
+
+        return nearestValue
+    }
+
 }
