@@ -145,7 +145,7 @@ To assign different values for iPhone and iPad devices you can use:
 static public func size<T: AnyObject>(phone phone: T, pad: T) -> T
 
 // Usage example
-let size = Device.size(iphone: 13, pad: 15)
+let size = Device.size(phone: 13, pad: 15)
 let font = UIFont(name: "Arial", size: CGFloat(size))
 ```
 
