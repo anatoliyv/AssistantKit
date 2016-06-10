@@ -16,7 +16,7 @@ Easy way to detect device environment:
 
 Helps to:
 - [x] [work with bundle Document and Cache folders](https://github.com/anatoliyv/AssistantKit/blob/master/README.md#working-with-directories)
-- [x] [easy way to assign sizes for different devices](https://github.com/anatoliyv/AssistantKit#detecting-screen-family)
+- [x] [easily assign sizes for different devices](https://github.com/anatoliyv/AssistantKit#detecting-screen-family)
 
 ## Installation
 
@@ -45,8 +45,8 @@ default:          print("Unknown")
 }
 ```
 
-You can check the exact device version with next code. All possible values of `version` could be
-found in `Version` enum, located in the `Version.swift` file.
+You can check the exact device version with next code. All possible values of `version` can be
+found in the `Version` enum, located in the `Version.swift` file.
 
 ```swift
 let version = Device.version
@@ -93,7 +93,7 @@ There are few properties that detect device type
 Device.isPhone     // true for iPhones even if it's Simulator
 Device.isPad       // true for iPads even if it's Simulator
 Device.isPadPro    // true for iPad Pros even if it's Simulator
-Device.isPod       // true for Pods
+Device.isPod       // true for iPods
 Device.isSimulator // true for Simulators
 ```
 
@@ -189,7 +189,7 @@ let exactSize = Device.size(sizes: sizes) as! Int
 let _ = UIFont(name: "Arial", size: CGFloat(exactSize))
 ```
 
-*Important notice:* This method can return `nil` if you pass empty array as a parameter. Be careful with implicit unwrapping.
+*Important notice:* This method can return `nil` if you pass an empty array as a parameter. Be careful with implicit unwrapping.
 
 After that your font will be:
 - 12 for 3.5" inches (older devices)
