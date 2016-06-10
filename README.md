@@ -16,7 +16,7 @@ Easy way to detect device environment:
 
 Helps to:
 - [x] [work with bundle Document and Cache folders](https://github.com/anatoliyv/AssistantKit/blob/master/README.md#working-with-directories)
-- [x] [easy way to assign sizes for different devices](https://github.com/anatoliyv/AssistantKit#detecting-screen-family)
+- [x] [easily assign sizes for different devices](https://github.com/anatoliyv/AssistantKit#detecting-screen-family)
 
 ## Installation
 
@@ -31,9 +31,9 @@ pod "AssistantKit"
 
 ### Device version information
 
-To get current device type use:
+To get the current device type, use:
 
-```
+```swift
 let device = Device.type
 
 switch device {
@@ -45,10 +45,10 @@ default:          print("Unknown")
 }
 ```
 
-You can check exact device version with next code. All possible values of `version` could be
-found in Version enum, Version.swift file.
+You can check the exact device version with next code. All possible values of `version` can be
+found in the `Version` enum, located in the `Version.swift` file.
 
-```
+```swift
 let version = Device.version
 
 switch version {
@@ -89,20 +89,20 @@ default:            print("Unknown device")
 
 There are few properties that detect device type
 
-```
+```swift
 Device.isPhone     // true for iPhones even if it's Simulator
 Device.isPad       // true for iPads even if it's Simulator
-Device.isPadPro    // true for iPadPros even if it's Simulator
-Device.isPod       // true for Pods
+Device.isPadPro    // true for iPad Pros even if it's Simulator
+Device.isPod       // true for iPods
 Device.isSimulator // true for Simulators
 ```
 
 ### Device screen parameters
 
 Detecting screen size can be detected with next code. All possible values could be
-found in Screen enum, Screen.swift
+found in the `Screen` enum, located in `Screen.swift`.
 
-```
+```swift
 let screen = Device.screen
 
 switch screen {
@@ -121,16 +121,16 @@ default:           print("Other display")
 
 Often it is required to assign different parameters based on specific screen resolution.
 There are 3 methods that will help you to detect what parameters to use. But
-first of all let me introduce ScreenFamily.
+first of all let me introduce `ScreenFamily`.
 
 This is enum that breaks all possible screens into 3 groups:
-- ScreenFamily.Small:        All iPhones/iPods without iPhone 6Plus
-- ScreenFamily.Medium:       iPhone 6Plus and iPad Mini
-- ScreenFamily.Big:          iPad and iPad Pro
+- `.Small`:        All iPhones/iPods without iPhone 6 Plus
+- `.Medium`:       iPhone 6 Plus and iPad Mini
+- `.Big`:          iPad and iPad Pro
 
 You can detect screen family by:
 
-```
+```swift
 let family = Device.screen.family
 ```
 
@@ -140,7 +140,7 @@ And now back to methods:
 
 To assign different values for iPhone and iPad devices you can use:
 
-```
+```swift
 // Method definition
 static public func size<T: AnyObject>(phone phone: T, pad: T) -> T
 
@@ -153,9 +153,9 @@ On iPhones your font size will be 13.0, on iPads 15.0
 
 #### Value by ScreenFamily
 
-Another method based on ScreenFamily:
+Another method based on `ScreenFamily`:
 
-```
+```swift
 // Method definition
 static public func size<T: AnyObject>(small small: T, medium: T, big: T) -> T
 
@@ -164,7 +164,7 @@ let otherSize = Device.size(small: 12, medium: 14, big: 15)
 let otherFont = UIFont(name: "Arial", size: CGFloat(otherSize))
 ```
 
-In this case for small screens your font will be 12.0, for medium 14.0 and for big 15.0 inches
+In this case for small screens your font will be 12.0, for medium 14.0 and for big 15.0 inches.
 
 *Important notice:* By default if screen family can not be detected `size` method will
 assign small value.
@@ -174,12 +174,12 @@ assign small value.
 Also you can return value for specific screen size. There is another size method you can use.
 Incoming parameter should be a screen size. If it is not defined nearest value will be used. Code example:
 
-```
+```swift
 // Method definition
 static public func size<T: AnyObject>(sizes sizes: [Screen : T]) -> T?
 
 // Usage example
-let sizes: [Screen:AnyObject] = [
+let sizes: [Screen: AnyObject] = [
    .Inches_3_5: 12,
    .Inches_4_0: 13,
    .Inches_4_7: 14,
@@ -189,7 +189,7 @@ let exactSize = Device.size(sizes: sizes) as! Int
 let _ = UIFont(name: "Arial", size: CGFloat(exactSize))
 ```
 
-*Important notice:* This method can return nil if you pass empty array as a parameter. Be careful with implicit unwrapping.
+*Important notice:* This method can return `nil` if you pass an empty array as a parameter. Be careful with implicit unwrapping.
 
 After that your font will be:
 - 12 for 3.5" inches (older devices)
@@ -199,7 +199,7 @@ After that your font will be:
 
 ### Screen scale
 
-```
+```swift
 let scale = Device.scale
 
 switch scale {
@@ -212,15 +212,15 @@ default:  print("Unknown scale")
 
 Also there is a property to detect if it's retina display:
 
-```
-Device.isRetina // true if device screen scale greater than 1.0
+```swift
+Device.isRetina // true if device screen scale > 1.0
 ```
 
 ### Interface orientation
 
 There are two properties that will help you to know current orientation:
 
-```
+```swift
 Device.isLandscape // true if landscape
 Device.isPortrait  // true if portrait
 ```
@@ -230,7 +230,7 @@ Device.isPortrait  // true if portrait
 You can detect iOS version in runtime. There are 5 different methods that will help you to
 detect it:
 
-```
+```swift
 Device.osVersionString                         // Current version as a String i.e. "9.3"
 Device.osVersion                               // Current version as a Float i.e. 9.3
 
@@ -246,7 +246,7 @@ Device.osVersionLessThanOrEqualTo("9.0")       // true if iOS <= 9.0
 There are few helper methods to make access to Documents and Caches directoies easier.
 Take a look at code examples:
 
-```
+```swift
 Bundle.documentsDirectoryURL           // URL to .DocumentDirectory
 Bundle.documentsDirectoryPath          // Path to .DocumentDirectory
 Bundle.cachesDirectoryURL              // URL to .CachesDirectory
@@ -255,7 +255,6 @@ Bundle.cachesDirectoryPath             // Path to .CachesDirectory
 let filePath = "directory/filename.txt"
 Bundle.filePathInDocumentsDirectory(toFile: filePath)  // Path to file in .DocumentDirectory
 Bundle.filePathInCachesDirectory(toFile: filePath)     // Path to file in .CachesDirectory
-
 ```
 
 ## TODO
