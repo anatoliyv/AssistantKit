@@ -4,8 +4,8 @@
 [![Version](https://img.shields.io/cocoapods/v/AssistantKit.svg?style=flat)](http://cocoapods.org/pods/AssistantKit)
 [![License](https://img.shields.io/cocoapods/l/AssistantKit.svg?style=flat)](http://cocoapods.org/pods/AssistantKit)
 [![Platform](https://img.shields.io/cocoapods/p/AssistantKit.svg?style=flat)](http://cocoapods.org/pods/AssistantKit)
-![](https://img.shields.io/badge/Supported-iOS8-4BC51D.svg?style=flat-square)
-![](https://img.shields.io/badge/Swift 2-compatible-4BC51D.svg?style=flat-square)
+![](https://img.shields.io/badge/Supported-iOS8-4BC51D.svg?style=flat)
+![](https://img.shields.io/badge/Swift 3-compatible-4BC51D.svg?style=flat)
 
 
 Easy way to detect device environment:
