@@ -19,10 +19,10 @@ import UIKit
  let device = Device.type
  
  switch device {
- case .Phone: print("iPhone")
- case .Pad: print("iPad")
- case .Pod: print("iPod")
- case .Simulator: print("Simulator")
+ case .phone: print("iPhone")
+ case .pad: print("iPad")
+ case .pod: print("iPod")
+ case .simulator: print("Simulator")
  default: print("Unknown")
  }
  ```
@@ -34,8 +34,8 @@ import UIKit
  let version = Device.version
  
  switch version {
- case .Phone5S: print("iPhone 5S")
- case .PadPro: print("iPad Pro")
+ case .phone5S: print("iPhone 5S")
+ case .padPro: print("iPad Pro")
  default: print("Other device")
  }
  ```
@@ -63,13 +63,13 @@ import UIKit
  let screen = Device.screen
 
  switch screen {
- case .Inches_3_5:  print("3.5 inches")
- case .Inches_4_0:  print("4.0 inches")
- case .Inches_4_7:  print("4.7 inches")
- case .Inches_5_5:  print("5.5 inches")
- case .Inches_7_9:  print("7.9 inches")
- case .Inches_9_7:  print("9.7 inches")
- case .Inches_12_9: print("12.9 inches")
+ case .inches_3_5:  print("3.5 inches")
+ case .inches_4_0:  print("4.0 inches")
+ case .inches_4_7:  print("4.7 inches")
+ case .inches_5_5:  print("5.5 inches")
+ case .inches_7_9:  print("7.9 inches")
+ case .inches_9_7:  print("9.7 inches")
+ case .inches_12_9: print("12.9 inches")
  default:           print("Other display")
  }
  ```
@@ -81,9 +81,9 @@ import UIKit
  wirst of all let me introduce ScreenFamily.
  
  This is enum that breaks all possible screen resolutions into 3 groups:
- - ScreenFamily.*Small*:        All iPhones/iPods without iPhone 6Plus
- - ScreenFamily.*Medium*:       iPhone 6Plus and iPad Mini
- - ScreenFamily.*Big*:          iPad and iPad Pro
+ - ScreenFamily.*small*:        All iPhones/iPods without iPhone 6Plus
+ - ScreenFamily.*medium*:       iPhone 6Plus and iPad Mini
+ - ScreenFamily.*big*:          iPad and iPad Pro
  
  You can detect screen family by:
  
@@ -120,9 +120,9 @@ import UIKit
  let scale == Device.scale
  
  switch scale {
- case .X1: print("Not retina")
- case .X2: print("Good")
- case .X3: print("Your device rocks!")
+ case .x1: print("Not retina")
+ case .x2: print("Good")
+ case .x3: print("Your device rocks!")
  }
  ```
  

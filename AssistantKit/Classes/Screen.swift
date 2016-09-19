@@ -126,7 +126,7 @@ extension Device {
 
         case 1024:
             switch version {
-            case .PadMini, .PadMini2, .PadMini3, .PadMini4:
+            case .padMini, .padMini2, .padMini3, .padMini4:
                 return .inches_7_9
 
             default:
@@ -208,10 +208,10 @@ extension Device {
      
      ```
      let sizes: [Screen:AnyObject] = [
-         .Inches_3_5: 12,
-         .Inches_4_0: 13,
-         .Inches_4_7: 14,
-         .Inches_9_7: 15
+         .inches_3_5: 12,
+         .inches_4_0: 13,
+         .inches_4_7: 14,
+         .inches_9_7: 15
         ]
      let exactSize = Device.size(sizes: sizes) as! Int
      let _ = UIFont(name: "Arial", size: CGFloat(exactSize))

@@ -16,50 +16,50 @@ import Foundation
  - Parameter Unknown
  */
 public enum Type: String {
-    case Phone
-    case Pad
-    case Pod
-    case Simulator
-    case Unknown
+    case phone
+    case pad
+    case pod
+    case simulator
+    case unknown
 }
 
 /**
  Exact device version
  */
 public enum Version: String {
-    case Phone4
-    case Phone4S
-    case Phone5
-    case Phone5C
-    case Phone5S
-    case Phone6
-    case Phone6Plus
-    case Phone6S
-    case Phone6SPlus
-    case PhoneSE
+    case phone4
+    case phone4S
+    case phone5
+    case phone5C
+    case phone5S
+    case phone6
+    case phone6Plus
+    case phone6S
+    case phone6SPlus
+    case phoneSE
 
-    case Pad1
-    case Pad2
-    case PadMini
-    case Pad3
-    case Pad4
-    case PadAir
-    case PadMini2
-    case PadAir2
-    case PadMini3
-    case PadMini4
-    case PadPro
+    case pad1
+    case pad2
+    case padMini
+    case pad3
+    case pad4
+    case padAir
+    case padMini2
+    case padAir2
+    case padMini3
+    case padMini4
+    case padPro
 
-    case PodTouch1
-    case PodTouch2
-    case PodTouch3
-    case PodTouch4
-    case PodTouch5
-    case PodTouch6
+    case podTouch1
+    case podTouch2
+    case podTouch3
+    case podTouch4
+    case podTouch5
+    case podTouch6
 
-    case Simulator
+    case simulator
 
-    case Unknown
+    case unknown
 }
 
 /**
@@ -99,7 +99,7 @@ extension Device {
              "iPhone8,1",
              "iPhone8,2",
              "iPhone8,4":
-            return .Phone
+            return .phone
 
         case "iPad1,1",
              "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4",
@@ -112,7 +112,7 @@ extension Device {
              "iPad4,7", "iPad4,8", "iPad4,9",
              "iPad5,1", "iPad5,2",
              "iPad6,3", "iPad6,4", "iPad6,7", "iPad6,8":
-            return .Pad
+            return .pad
 
         case "iPod1,1",
              "iPod2,1",
@@ -120,13 +120,13 @@ extension Device {
              "iPod4,1",
              "iPod5,1",
              "iPod7,1":
-            return .Pod
+            return .pod
 
         case "i386", "x86_64":
-            return .Simulator
+            return .simulator
 
         default:
-            return .Unknown
+            return .unknown
         }
     }
 
@@ -147,7 +147,7 @@ extension Device {
 
     /// Return `true` for Simulator
     static public var isSimulator: Bool {
-        return type == .Simulator
+        return type == .simulator
     }
 
     // MARK: Version
@@ -158,95 +158,95 @@ extension Device {
         switch versionCode {
         // Phones
         case "iPhone3,1", "iPhone3,2", "iPhone3,3":
-            return .Phone4
+            return .phone4
 
         case "iPhone4,1", "iPhone4,2", "iPhone4,3":
-            return .Phone4S
+            return .phone4S
 
         case "iPhone5,1", "iPhone5,2":
-            return .Phone5
+            return .phone5
 
         case "iPhone5,3", "iPhone5,4":
-            return .Phone5C
+            return .phone5C
 
         case "iPhone6,1", "iPhone6,2":
-            return .Phone5S
+            return .phone5S
 
         case "iPhone7,2":
-            return .Phone6
+            return .phone6
 
         case "iPhone7,1":
-            return .Phone6Plus
+            return .phone6Plus
 
         case "iPhone8,1":
-            return .Phone6S
+            return .phone6S
 
         case "iPhone8,2":
-            return .Phone6SPlus
+            return .phone6SPlus
 
         case "iPhone8,4":
-            return .PhoneSE
+            return .phoneSE
 
         // Pads
         case "iPad1,1":
-            return .Pad1
+            return .pad1
 
         case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":
-            return .Pad2
+            return .pad2
 
         case "iPad3,1", "iPad3,2", "iPad3,3":
-            return .Pad3
+            return .pad3
 
         case "iPad3,4", "iPad3,5", "iPad3,6":
-            return .Pad4
+            return .pad4
 
         case "iPad4,1", "iPad4,2", "iPad4,3":
-            return .PadAir
+            return .padAir
 
         case "iPad5,3", "iPad5,4":
-            return .PadAir2
+            return .padAir2
 
         case "iPad2,5", "iPad2,6", "iPad2,7":
-            return .PadMini
+            return .padMini
 
         case "iPad4,4", "iPad4,5", "iPad4,6":
-            return .PadMini2
+            return .padMini2
 
         case "iPad4,7", "iPad4,8", "iPad4,9":
-            return .PadMini3
+            return .padMini3
 
         case "iPad5,1", "iPad5,2":
-            return .PadMini4
+            return .padMini4
 
         case "iPad6,3", "iPad6,4", "iPad6,7", "iPad6,8":
-            return .PadPro
+            return .padPro
 
         // Pods
         case "iPod1,1":
-            return .PodTouch1
+            return .podTouch1
 
         case "iPod2,1":
-            return .PodTouch2
+            return .podTouch2
 
         case "iPod3,1":
-            return .PodTouch3
+            return .podTouch3
 
         case "iPod4,1":
-            return .PodTouch4
+            return .podTouch4
 
         case "iPod5,1":
-            return .PodTouch5
+            return .podTouch5
 
         case "iPod7,1":
-            return .PodTouch6
+            return .podTouch6
 
         // Simulator
         case "i386", "x86_64":
-            return .Simulator
+            return .simulator
 
         // Unknown
         default:
-            return .Unknown
+            return .unknown
         }
     }
 }
