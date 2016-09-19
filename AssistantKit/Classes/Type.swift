@@ -37,6 +37,8 @@ public enum Version: String {
     case phone6S
     case phone6SPlus
     case phoneSE
+    case phone7
+    case phone7Plus
 
     case pad1
     case pad2
@@ -94,11 +96,9 @@ extension Device {
              "iPhone5,1", "iPhone5,2",
              "iPhone5,3", "iPhone5,4",
              "iPhone6,1", "iPhone6,2",
-             "iPhone7,2",
-             "iPhone7,1",
-             "iPhone8,1",
-             "iPhone8,2",
-             "iPhone8,4":
+             "iPhone7,2", "iPhone7,1",
+             "iPhone8,1", "iPhone8,2", "iPhone8,4",
+             "iPhone9,1", "iPhone9,2":
             return .phone
 
         case "iPad1,1",
@@ -186,6 +186,13 @@ extension Device {
 
         case "iPhone8,4":
             return .phoneSE
+
+        case "iPhone9,1":
+            return .phone7
+
+        case "iPhone9,2":
+            return .phone7Plus
+
 
         // Pads
         case "iPad1,1":
