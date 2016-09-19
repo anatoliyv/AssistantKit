@@ -21,25 +21,25 @@ import UIKit
  - Parameter Inches_12_9:   Screens for iPad Pro
  */
 public enum Screen: CGFloat {
-    case Unknown     = 0
-    case Inches_3_5  = 3.5
-    case Inches_4_0  = 4.0
-    case Inches_4_7  = 4.7
-    case Inches_5_5  = 5.5
-    case Inches_7_9  = 7.9
-    case Inches_9_7  = 9.7
-    case Inches_12_9 = 12.9
+    case unknown     = 0
+    case inches_3_5  = 3.5
+    case inches_4_0  = 4.0
+    case inches_4_7  = 4.7
+    case inches_5_5  = 5.5
+    case inches_7_9  = 7.9
+    case inches_9_7  = 9.7
+    case inches_12_9 = 12.9
 
     /// Return screen family
     public var family: ScreenFamily {
         switch self {
-        case .Inches_3_5, Inches_4_0, Inches_4_7:
+        case .inches_3_5, .inches_4_0, .inches_4_7:
             return .Small
 
-        case .Inches_5_5, Inches_7_9:
+        case .inches_5_5, .inches_7_9:
             return .Medium
 
-        case .Inches_9_7, Inches_12_9:
+        case .inches_9_7, .inches_12_9:
             return .Big
 
         default:
@@ -72,10 +72,10 @@ public enum ScreenFamily: String {
  - Parameter Unknown:
  */
 public enum Scale: CGFloat, Comparable, Equatable {
-    case X1      = 1.0
-    case X2      = 2.0
-    case X3      = 3.0
-    case Unknown = 0
+    case x1      = 1.0
+    case x2      = 2.0
+    case x3      = 3.0
+    case unknown = 0
 }
 
 public func ==(lhs: Scale, rhs: Scale) -> Bool {
@@ -108,36 +108,36 @@ extension Device {
      - Seealso: Screen
      */
     static public var screen: Screen {
-        let size = UIScreen.mainScreen().bounds.size
+        let size = UIScreen.main.bounds.size
         let height = max(size.width, size.height)
 
         switch height {
         case 480:
-            return .Inches_3_5
+            return .inches_3_5
 
         case 568:
-            return .Inches_4_0
+            return .inches_4_0
 
         case 667:
-            return ( scale == .X3 ? .Inches_5_5 : .Inches_4_7 )
+            return ( scale == .x3 ? .inches_5_5 : .inches_4_7 )
 
         case 736:
-            return .Inches_5_5
+            return .inches_5_5
 
         case 1024:
             switch version {
             case .PadMini, .PadMini2, .PadMini3, .PadMini4:
-                return .Inches_7_9
+                return .inches_7_9
 
             default:
-                return .Inches_9_7
+                return .inches_9_7
             }
 
         case 1366:
-            return .Inches_12_9
+            return .inches_12_9
 
         default:
-            return .Unknown
+            return .unknown
         }
     }
 
@@ -146,26 +146,26 @@ extension Device {
      - Seealso: Scale
      */
     static public var scale: Scale {
-        let scale = UIScreen.mainScreen().scale
+        let scale = UIScreen.main.scale
 
         switch scale {
         case 1.0:
-            return .X1
+            return .x1
 
         case 2.0:
-            return .X2
+            return .x2
 
         case 3.0:
-            return .X3
+            return .x3
 
         default:
-            return .Unknown
+            return .unknown
         }
     }
 
     /// Return `true` for retina displays
     static public var isRetina: Bool {
-        return scale > Scale.X1
+        return scale > Scale.x1
     }
 }
 
@@ -174,7 +174,7 @@ extension Device {
 extension Device {
 
     /// Returns size for a specific device (iPad or iPhone/iPod)
-    static public func size<T: AnyObject>(phone phone: T, pad: T) -> T {
+    static public func size<T: Any>(phone: T, pad: T) -> T {
         return ( Device.isPad ? pad : phone )
     }
 
@@ -184,7 +184,7 @@ extension Device {
 
      - Seealso: Screen, ScreenFamily
      */
-    static public func size<T: AnyObject>(small small: T, medium: T, big: T) -> T {
+    static public func size<T: Any>(small: T, medium: T, big: T) -> T {
         let family = Device.screen.family
 
         switch family {
@@ -225,10 +225,10 @@ extension Device {
 
      - Seealso: Screen
     */
-    static public func size<T: AnyObject>(sizes sizes: [Screen : T]) -> T? {
+    static public func size<T: Any>(sizes: [Screen : T]) -> T? {
         let screen = Device.screen
         var nearestValue: T?
-        var distance = CGFloat.max
+        var distance = CGFloat.greatestFiniteMagnitude
 
         for (key, value) in sizes {
             // Prevent from iterating whole array

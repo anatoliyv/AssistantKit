@@ -11,7 +11,7 @@ import AssistantKit
 
 class ViewController: UIViewController {
 
-    @IBAction func pressedTest(sender: AnyObject?) {
+    @IBAction open func pressedTest(sender: AnyObject?) {
         testBundleFiles()
         testBundleVersions()
         testDeviceScreen()
@@ -31,9 +31,9 @@ class ViewController: UIViewController {
         let fileWithPath = "somefolder/other_file.data"
 
         print("*** Global paths")
-        print("Documents URL:   " + String(Bundle.documentsDirectoryURL))
+        print("Documents URL:   " + String(describing: Bundle.documentsDirectoryURL))
         print("Documents path:  " + String(Bundle.documentsDirectoryPath))
-        print("Caches URL:      " + String(Bundle.cachesDirectoryURL))
+        print("Caches URL:      " + String(describing: Bundle.cachesDirectoryURL))
         print("Caches path:     " + String(Bundle.cachesDirectoryPath))
         print()
 
@@ -58,8 +58,8 @@ class ViewController: UIViewController {
 
     func testDeviceScreen() {
         print("*** Screen")
-        print("screen:          " + String(Device.screen.rawValue))
-        print("scale:           " + String(Device.scale.rawValue))
+        print("screen:          " + String(describing: Device.screen.rawValue))
+        print("scale:           " + String(describing: Device.scale.rawValue))
         print("isRetina:        " + String(Device.isRetina))
         print("isPortrait:      " + String(Device.isPortrait))
         print("isLandscape:     " + String(Device.isLandscape))
@@ -69,11 +69,11 @@ class ViewController: UIViewController {
         print("size for device: " + String(Device.size(phone: "phone size", pad: "pad size")))
         print("size for family: " + String(Device.size(small: "small family", medium: "medium family", big: "big family")))
 
-        let sizes: [Screen:AnyObject] = [
-            .Inches_3_5: 12,
-            .Inches_4_0: 13,
-            .Inches_5_5: 14,
-            .Inches_9_7: 15
+        let sizes: [Screen:Any] = [
+            .inches_3_5: 12,
+            .inches_4_0: 13,
+            .inches_5_5: 14,
+            .inches_9_7: 15
         ]
         let exactSize = Device.size(sizes: sizes) as! Int
         print("exact size:      " + String(exactSize))
@@ -145,21 +145,21 @@ class ViewController: UIViewController {
         
         let screen = Device.screen
         switch screen {
-        case .Inches_3_5:  print("3.5 inches")
-        case .Inches_4_0:  print("4.0 inches")
-        case .Inches_4_7:  print("4.7 inches")
-        case .Inches_5_5:  print("5.5 inches")
-        case .Inches_7_9:  print("7.9 inches")
-        case .Inches_9_7:  print("9.7 inches")
-        case .Inches_12_9: print("12.9 inches")
+        case .inches_3_5:  print("3.5 inches")
+        case .inches_4_0:  print("4.0 inches")
+        case .inches_4_7:  print("4.7 inches")
+        case .inches_5_5:  print("5.5 inches")
+        case .inches_7_9:  print("7.9 inches")
+        case .inches_9_7:  print("9.7 inches")
+        case .inches_12_9: print("12.9 inches")
         default:           print("Other display")
         }
 
         let scale = Device.scale
         switch scale {
-        case .X1: print("Not retina")
-        case .X2: print("Retina 2X")
-        case .X3: print("Retina 3X")
+        case .x1: print("Not retina")
+        case .x2: print("Retina 2X")
+        case .x3: print("Retina 3X")
         default:  print("Unknown scale")
         }
 
@@ -169,11 +169,11 @@ class ViewController: UIViewController {
         let otherSize = Device.size(small: 12, medium: 14, big: 15)
         let _ = UIFont(name: "Arial", size: CGFloat(otherSize))
 
-        let sizes: [Screen:AnyObject] = [
-            .Inches_3_5: 12,
-            .Inches_4_0: 13,
-            .Inches_5_5: 14,
-            .Inches_9_7: 15
+        let sizes: [Screen:Any] = [
+            .inches_3_5: 12,
+            .inches_4_0: 13,
+            .inches_5_5: 14,
+            .inches_9_7: 15
         ]
         let exactSize = Device.size(sizes: sizes) as! Int
         let _ = UIFont(name: "Arial", size: CGFloat(exactSize))

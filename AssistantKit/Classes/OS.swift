@@ -15,48 +15,48 @@ extension Device {
 
     /// Current iOS version in as float
     static public var osVersion: Float {
-        return Float(UIDevice.currentDevice().systemVersion)!
+        return Float(UIDevice.current.systemVersion)!
     }
 
     /// Current iOS version as string
     static public var osVersionString: String {
-        return UIDevice.currentDevice().systemVersion
+        return UIDevice.current.systemVersion
     }
 
     /// Detect iOS version is equal to
-    static public func osVersionEqualTo(version: String) -> Bool {
-        return compareVersionEqual(version, result: NSComparisonResult.OrderedSame)
+    static public func osVersionEqualTo(_ version: String) -> Bool {
+        return compareVersionEqual(version, result: ComparisonResult.orderedSame)
     }
 
     /// Detect iOS version is greater than
-    static public func osVersionGreaterThan(version: String) -> Bool {
-        return compareVersionEqual(version, result: NSComparisonResult.OrderedDescending)
+    static public func osVersionGreaterThan(_ version: String) -> Bool {
+        return compareVersionEqual(version, result: ComparisonResult.orderedDescending)
     }
 
     /// Detect iOS version is greater than or equal to
-    static public func osVersionGreaterThanOrEqualTo(version: String) -> Bool {
-        return compareVersionNotEqual(version, result: NSComparisonResult.OrderedAscending)
+    static public func osVersionGreaterThanOrEqualTo(_ version: String) -> Bool {
+        return compareVersionNotEqual(version, result: ComparisonResult.orderedAscending)
     }
 
     /// Detect iOS version is less than
-    static public func osVersionLessThan(version: String) -> Bool {
-        return compareVersionEqual(version, result: NSComparisonResult.OrderedAscending)
+    static public func osVersionLessThan(_ version: String) -> Bool {
+        return compareVersionEqual(version, result: ComparisonResult.orderedAscending)
     }
 
     /// Detect iOS version is less than or equal
-    static public func osVersionLessThanOrEqualTo(version: String) -> Bool {
-        return compareVersionNotEqual(version, result: NSComparisonResult.OrderedAscending)
+    static public func osVersionLessThanOrEqualTo(_ version: String) -> Bool {
+        return compareVersionNotEqual(version, result: ComparisonResult.orderedAscending)
     }
 
     // MARK: Helpers
 
-    static private func compareVersionEqual(version: String, result: NSComparisonResult) -> Bool {
-        let currentVersion = UIDevice.currentDevice().systemVersion
-        return currentVersion.compare(version, options: NSStringCompareOptions.NumericSearch) == result
+    static fileprivate func compareVersionEqual(_ version: String, result: ComparisonResult) -> Bool {
+        let currentVersion = UIDevice.current.systemVersion
+        return currentVersion.compare(version, options: NSString.CompareOptions.numeric) == result
     }
 
-    static private func compareVersionNotEqual(version: String, result: NSComparisonResult) -> Bool {
-        let currentVersion = UIDevice.currentDevice().systemVersion
-        return currentVersion.compare(version, options: NSStringCompareOptions.NumericSearch) != result
+    static fileprivate func compareVersionNotEqual(_ version: String, result: ComparisonResult) -> Bool {
+        let currentVersion = UIDevice.current.systemVersion
+        return currentVersion.compare(version, options: NSString.CompareOptions.numeric) != result
     }
 }

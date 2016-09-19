@@ -63,17 +63,17 @@ extension Bundle {
 
     /// Return bundle version
     static public var bundleVersion: String {
-        return NSBundle.mainBundle().infoDictionary?["CFBundleVersion"] as? String ?? "Unknown"
+        return Foundation.Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "Unknown"
     }
 
     /// Return bundle short version
     static public var bundleShortVersion: String {
-        return NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+        return Foundation.Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
     }
 
     /// Return bundle version
     static public var bundleIdentifier: String {
-        return NSBundle.mainBundle().infoDictionary?["CFBundleIdentifier"] as? String ?? "Unknown"
+        return Foundation.Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String ?? "Unknown"
     }
 }
 
@@ -84,55 +84,55 @@ extension Bundle {
     // MARK: .DocumentDirectory
 
     /// URL to bundle .DocumentDirectory
-    static public var documentsDirectoryURL: NSURL {
-        return documentsDirectoryURL(.DocumentDirectory)
+    static public var documentsDirectoryURL: URL {
+        return documentsDirectoryURL(.documentDirectory)
     }
 
     /// Path to bundle .DocumentDirectory
     static public var documentsDirectoryPath: String {
-        return documentsDirectoryPath(.DocumentDirectory)
+        return documentsDirectoryPath(.documentDirectory)
     }
 
     /// Path to file in bundle .DocumentDirectory
     static public func filePathInDocumentsDirectory(toFile file: String) -> String {
-        return filePathInDocumentsDirectory(.DocumentDirectory, toFile: file)
+        return filePathInDocumentsDirectory(.documentDirectory, toFile: file)
     }
 
     // MARK: .CachesDirectory
 
     /// URL to bundle .CachesDirectory
-    static public var cachesDirectoryURL: NSURL {
-        return documentsDirectoryURL(.CachesDirectory)
+    static public var cachesDirectoryURL: URL {
+        return documentsDirectoryURL(.cachesDirectory)
     }
 
     /// Path to bundle .CachesDirectory
     static public var cachesDirectoryPath: String {
-        return documentsDirectoryPath(.CachesDirectory)
+        return documentsDirectoryPath(.cachesDirectory)
     }
 
     /// Path to file in bundle .CachesDirectory
     static public func filePathInCachesDirectory(toFile file: String) -> String {
-        return filePathInDocumentsDirectory(.CachesDirectory, toFile: file)
+        return filePathInDocumentsDirectory(.cachesDirectory, toFile: file)
     }
 
     // MARK: Helpers
 
-    static private func documentsDirectoryURL(directory: NSSearchPathDirectory) -> NSURL {
-        let URLs = NSFileManager.defaultManager().URLsForDirectory(directory, inDomains: .UserDomainMask)
+    static fileprivate func documentsDirectoryURL(_ directory: FileManager.SearchPathDirectory) -> URL {
+        let URLs = FileManager.default.urls(for: directory, in: .userDomainMask)
         let URL = URLs[URLs.count - 1]
         return URL
     }
 
     /// Path to bundle .DocumentDirectory
-    static private func documentsDirectoryPath(directory: NSSearchPathDirectory) -> String {
-        let URLs = NSFileManager.defaultManager().URLsForDirectory(directory, inDomains: .UserDomainMask)
+    static fileprivate func documentsDirectoryPath(_ directory: FileManager.SearchPathDirectory) -> String {
+        let URLs = FileManager.default.urls(for: directory, in: .userDomainMask)
         let URL = URLs[URLs.count - 1]
         return URL.absoluteString
     }
 
-    static public func filePathInDocumentsDirectory(directory: NSSearchPathDirectory, toFile file: String) -> String {
-        let URLs = NSFileManager.defaultManager().URLsForDirectory(directory, inDomains: .UserDomainMask)
+    static public func filePathInDocumentsDirectory(_ directory: FileManager.SearchPathDirectory, toFile file: String) -> String {
+        let URLs = FileManager.default.urls(for: directory, in: .userDomainMask)
         let URL = URLs[URLs.count - 1]
-        return (URL.absoluteString as NSString).stringByAppendingPathComponent(file)
+        return (URL.absoluteString as NSString).appendingPathComponent(file)
     }
 }

@@ -67,13 +67,13 @@ public enum Version: String {
  */
 extension Device {
 
-    static private func versionCode() -> String {
+    static fileprivate func versionCode() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
 
         if let
-            info = NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN), encoding: NSASCIIStringEncoding),
-            code = String(UTF8String: info.UTF8String)
+            info = NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN), encoding: String.Encoding.ascii.rawValue),
+            let code = String(validatingUTF8: info.utf8String!)
         {
             return code
         }
@@ -132,7 +132,7 @@ extension Device {
 
     /// Return `true` for iPad-s
     static public var isPad: Bool {
-        return ( UIDevice.currentDevice().userInterfaceIdiom == .Pad )
+        return ( UIDevice.current.userInterfaceIdiom == .pad )
     }
 
     /// Return `true` for iPahone-s
@@ -142,7 +142,7 @@ extension Device {
 
     /// Return `true` for iPadPro
     static public var isPadPro: Bool {
-        return isPad && screen == .Inches_12_9
+        return isPad && screen == .inches_12_9
     }
 
     /// Return `true` for Simulator

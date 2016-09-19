@@ -191,8 +191,8 @@ extension Device {
 
     /// Return `true` for landscape interface orientation
     static public var isLandscape: Bool {
-        return ( UIApplication.sharedApplication().statusBarOrientation == .LandscapeLeft
-            || UIApplication.sharedApplication().statusBarOrientation == .LandscapeRight )
+        return ( UIApplication.shared.statusBarOrientation == .landscapeLeft
+            || UIApplication.shared.statusBarOrientation == .landscapeRight )
     }
 
     /// Return `true` for portrait interface orientation
