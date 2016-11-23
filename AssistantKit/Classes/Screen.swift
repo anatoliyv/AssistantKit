@@ -20,7 +20,7 @@ import UIKit
  - Parameter Inches_9_7:    Screens for iPad
  - Parameter Inches_12_9:   Screens for iPad Pro
  */
-public enum Screen: CGFloat {
+public enum Screen: CGFloat, Comparable {
     case unknown     = 0
     case inches_3_5  = 3.5
     case inches_4_0  = 4.0
@@ -46,6 +46,26 @@ public enum Screen: CGFloat {
             return .Unknown
         }
     }
+}
+
+public func ==(lhs: Screen, rhs: Screen) -> Bool {
+    return lhs.rawValue == rhs.rawValue
+}
+
+public func <(lhs: Screen, rhs: Screen) -> Bool {
+    return lhs.rawValue < rhs.rawValue
+}
+
+public func <=(lhs: Screen, rhs: Screen) -> Bool {
+    return lhs.rawValue <= rhs.rawValue
+}
+
+public func >=(lhs: Screen, rhs: Screen) -> Bool {
+    return lhs.rawValue >= rhs.rawValue
+}
+
+public func >(lhs: Screen, rhs: Screen) -> Bool {
+    return lhs.rawValue > rhs.rawValue
 }
 
 /**
