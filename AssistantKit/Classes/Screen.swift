@@ -48,6 +48,8 @@ public enum Screen: CGFloat, Comparable {
     }
 }
 
+// Comparing: Screen and Screen
+
 public func ==(lhs: Screen, rhs: Screen) -> Bool {
     return lhs.rawValue == rhs.rawValue
 }
@@ -66,6 +68,28 @@ public func >=(lhs: Screen, rhs: Screen) -> Bool {
 
 public func >(lhs: Screen, rhs: Screen) -> Bool {
     return lhs.rawValue > rhs.rawValue
+}
+
+// Comparing: Screen and Device
+
+public func ==(lhs: Screen, rhs: Version) -> Bool {
+    return lhs == rhs.screen
+}
+
+public func <(lhs: Screen, rhs: Version) -> Bool {
+    return lhs < rhs.screen
+}
+
+public func <=(lhs: Screen, rhs: Version) -> Bool {
+    return lhs <= rhs.screen
+}
+
+public func >=(lhs: Screen, rhs: Version) -> Bool {
+    return lhs >= rhs.screen
+}
+
+public func >(lhs: Screen, rhs: Version) -> Bool {
+    return lhs > rhs.screen
 }
 
 /**
