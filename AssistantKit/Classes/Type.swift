@@ -98,7 +98,7 @@ extension Device {
              "iPhone6,1", "iPhone6,2",
              "iPhone7,2", "iPhone7,1",
              "iPhone8,1", "iPhone8,2", "iPhone8,4",
-             "iPhone9,1", "iPhone9,2":
+             "iPhone9,1", "iPhone9,2", "iPhone9,3", "iPhone9,4":
             return .phone
 
         case "iPad1,1",
@@ -187,10 +187,10 @@ extension Device {
         case "iPhone8,4":
             return .phoneSE
 
-        case "iPhone9,1":
+        case "iPhone9,1", "iPhone9,3":
             return .phone7
 
-        case "iPhone9,2":
+        case "iPhone9,2", "iPhone9,4":
             return .phone7Plus
 
 
