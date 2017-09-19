@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         testDeviceScreen()
         testDeviceType()
         testDeviceOS()
+        testEnvironment()
         testCodeExamples()
     }
 
@@ -103,6 +104,12 @@ class ViewController: UIViewController {
         print("<= 9.0           " + String(Device.osVersionEqualTo("9.0")))
         print()
     }
+    
+    func testEnvironment() {
+        print("*** Environment")
+        print("isRunningUnitTests:" + String(Environment.isRunningUnitTests))
+        print()
+    }
 
     func testCodeExamples() {
         let version = Device.version
@@ -176,6 +183,7 @@ class ViewController: UIViewController {
         ]
         let exactSize = Device.size(sizes: sizes) as! Int
         let _ = UIFont(name: "Arial", size: CGFloat(exactSize))
+        print()
     }
 }
 

@@ -257,10 +257,19 @@ Bundle.filePathInDocumentsDirectory(toFile: filePath)  // Path to file in .Docum
 Bundle.filePathInCachesDirectory(toFile: filePath)     // Path to file in .CachesDirectory
 ```
 
+### Environment
+
+Used to detect environment options. Right now there is only one property:
+
+```
+/// Return `true` if running unit tests
+Environment.isRunningUnitTests
+```
+
 ## TODO
 
-- [x] Detect battery state
-- [x] Add tvOS support
+- [ ] Detect battery state
+- [ ] Add tvOS support
 - [x] Detect XCTest environment
 
 Write me or make a pull request if you have any ideas what else functionality can be useful in this repo.
