@@ -95,7 +95,6 @@ class ViewController: UIViewController {
         let version = Device.osVersionString
 
         print("*** iOS")
-        print("OS               " + String(Device.osVersion))
         print("OS String        " + String(Device.osVersionString))
         print("> 9.0            " + String(Device.osVersionGreaterThan("9.0")))
         print("< 9.0            " + String(Device.osVersionLessThan("9.0")))

@@ -228,12 +228,11 @@ Device.isPortrait  // true if portrait
 
 ## Detecting and comparing iOS version
 
-You can detect iOS version in runtime. There are 5 different methods that will help you to
-detect it:
+You can detect iOS version in runtime. There are next different methods that will help you to
+do it:
 
 ```swift
 Device.osVersionString                         // Current version as a String i.e. "9.3"
-Device.osVersion                               // Current version as a Float i.e. 9.3
 
 Device.osVersionEqualTo("9.0")                 // true if iOS 9.0
 Device.osVersionGreaterThan("9.0")             // true if iOS > 9.0
