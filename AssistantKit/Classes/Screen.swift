@@ -31,32 +31,37 @@ public enum Screen: CGFloat {
     /// Return screen family
     public var family: ScreenFamily {
         switch self {
-        case .inches_3_5, .inches_4_0, .inches_4_7:
-            return .Small
+        case .inches_3_5, .inches_4_0:
+            return .old
+            
+        case .inches_4_7:
+            return .small
 
         case .inches_5_5, .inches_7_9:
-            return .Medium
+            return .medium
 
         case .inches_9_7, .inches_12_9:
-            return .Big
+            return .big
 
         default:
-            return .Unknown
+            return .unknown
         }
     }
 }
 
-/// These parameters are used to groups device screens into 3 groups:
+/// These parameters are used to groups device screens into 4 groups:
 ///
 /// - parameter unknown:
-/// - parameter small:     Include devices with screen resolution 3.5, 4.0, 4.7 inches (iPhones without iPhone 6Plus)
+/// - parameter old:       In the case Apple stops to produce 3.5 and 4.0 inches devices this will represent it
+/// - parameter small:     Include 4.7 inches iPhone 6 size
 /// - parameter medium:    Include devices with screen resolution 5.5, 7.9 inches (iPhone 6Plus and iPad mini)
 /// - parameter big:       Include devices with biger screen resolutions (Regular iPad and iPad Pro)
 public enum ScreenFamily: String {
-    case Unknown = "Unknown"
-    case Small   = "Small"
-    case Medium  = "Medium"
-    case Big     = "Big"
+    case unknown = "unknown"
+    case old     = "old"
+    case small   = "small"
+    case medium  = "medium"
+    case big     = "big"
 }
 
 /// Different types of screen scales
@@ -78,18 +83,6 @@ public func ==(lhs: Scale, rhs: Scale) -> Bool {
 
 public func <(lhs: Scale, rhs: Scale) -> Bool {
     return lhs.rawValue < rhs.rawValue
-}
-
-public func <=(lhs: Scale, rhs: Scale) -> Bool {
-    return lhs.rawValue <= rhs.rawValue
-}
-
-public func >=(lhs: Scale, rhs: Scale) -> Bool {
-    return lhs.rawValue >= rhs.rawValue
-}
-
-public func >(lhs: Scale, rhs: Scale) -> Bool {
-    return lhs.rawValue > rhs.rawValue
 }
 
 /// Detecting screen properties
@@ -169,19 +162,24 @@ extension Device {
 
     /// Return size depending on specific screen family.
     /// If Screen size is unknown (in this case ScreenFamily will be unknown too) it will return small value
+    /// 
+    /// `old` screen family is optional and if not defined will return `small` value
     ///
     /// - seealso: Screen, ScreenFamily
-    static public func size<T: Any>(small: T, medium: T, big: T) -> T {
+    static public func size<T: Any>(old: T? = nil, small: T, medium: T, big: T) -> T {
         let family = Device.screen.family
 
         switch family {
-        case .Small:
+        case .old:
+            return old ?? small
+            
+        case .small:
             return small
 
-        case .Medium:
+        case .medium:
             return medium
 
-        case .Big:
+        case .big:
             return big
 
         default:

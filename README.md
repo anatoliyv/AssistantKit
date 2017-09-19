@@ -124,7 +124,8 @@ There are 3 methods that will help you to detect what parameters to use. But
 first of all let me introduce `ScreenFamily`.
 
 This is enum that breaks all possible screens into 3 groups:
-- `.small`:        All iPhones/iPods without iPhone 6 Plus
+- `.old`:          Reproduce old iPhones with 3.5 and 4.0 inches screens
+- `.small`:        Other iPhones/iPods without iPhone 6 Plus
 - `.medium`:       iPhone 6 Plus and iPad Mini
 - `.big`:          iPad and iPad Pro
 
