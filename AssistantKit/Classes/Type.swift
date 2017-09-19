@@ -65,7 +65,7 @@ public enum Version: String {
 /// Used to determinate device type
 extension Device {
 
-    static fileprivate func versionCode() -> String {
+    static public func versionCode() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
 
