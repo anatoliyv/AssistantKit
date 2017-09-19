@@ -8,9 +8,7 @@
 
 import Foundation
 
-/**
- Detecting iOS version
- */
+/// Detecting iOS version
 extension Device {
 
     /// Current iOS version in as float

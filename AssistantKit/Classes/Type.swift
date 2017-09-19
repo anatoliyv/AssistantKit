@@ -8,13 +8,13 @@
 
 import Foundation
 
-/**
- - Parameter Phone:
- - Parameter Pad:
- - Parameter Pod:
- - Parameter Simulator:
- - Parameter Unknown
- */
+/// Device types
+///
+/// - Parameter phone:
+/// - Parameter pad:
+/// - Parameter pod:
+/// - Parameter simulator:
+/// - Parameter unknown
 public enum Type: String {
     case phone
     case pad
@@ -23,9 +23,7 @@ public enum Type: String {
     case unknown
 }
 
-/**
- Exact device version
- */
+/// Exact device version
 public enum Version: String {
     case phone4
     case phone4S
@@ -64,9 +62,7 @@ public enum Version: String {
     case unknown
 }
 
-/**
- Used to determinate device type
- */
+/// Used to determinate device type
 extension Device {
 
     static fileprivate func versionCode() -> String {
@@ -83,10 +79,9 @@ extension Device {
         return ""
     }
 
-    /**
-     Return device type
-     - Seealso: Type
-    */
+    /// Return device type
+    ///
+    /// - seealso: Type
     static public var type: Type {
         let versionCode = Device.versionCode()
 
