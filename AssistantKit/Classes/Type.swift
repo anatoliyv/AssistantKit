@@ -69,7 +69,7 @@ public enum Version: String {
  */
 extension Device {
 
-    static fileprivate func versionCode() -> String {
+    static public func versionCode() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
 
