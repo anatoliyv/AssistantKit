@@ -97,6 +97,12 @@ Device.isPod       // true for iPods
 Device.isSimulator // true for Simulators
 ```
 
+To get raw device code use
+
+```
+Device.versionCode
+```
+
 ### Device screen parameters
 
 Detecting screen size can be detected with next code. All possible values could be
