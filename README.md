@@ -97,6 +97,12 @@ Device.isPod       // true for iPods
 Device.isSimulator // true for Simulators
 ```
 
+To get raw device code use
+
+```
+Device.versionCode
+```
+
 ### Device screen parameters
 
 Detecting screen size can be detected with next code. All possible values could be
@@ -124,7 +130,8 @@ There are 3 methods that will help you to detect what parameters to use. But
 first of all let me introduce `ScreenFamily`.
 
 This is enum that breaks all possible screens into 3 groups:
-- `.small`:        All iPhones/iPods without iPhone 6 Plus
+- `.old`:          Reproduce old iPhones with 3.5 and 4.0 inches screens
+- `.small`:        Other iPhones/iPods without iPhone 6 Plus
 - `.medium`:       iPhone 6 Plus and iPad Mini
 - `.big`:          iPad and iPad Pro
 
@@ -227,12 +234,11 @@ Device.isPortrait  // true if portrait
 
 ## Detecting and comparing iOS version
 
-You can detect iOS version in runtime. There are 5 different methods that will help you to
-detect it:
+You can detect iOS version in runtime. There are next different methods that will help you to
+do it:
 
 ```swift
 Device.osVersionString                         // Current version as a String i.e. "9.3"
-Device.osVersion                               // Current version as a Float i.e. 9.3
 
 Device.osVersionEqualTo("9.0")                 // true if iOS 9.0
 Device.osVersionGreaterThan("9.0")             // true if iOS > 9.0
@@ -257,10 +263,19 @@ Bundle.filePathInDocumentsDirectory(toFile: filePath)  // Path to file in .Docum
 Bundle.filePathInCachesDirectory(toFile: filePath)     // Path to file in .CachesDirectory
 ```
 
+### Environment
+
+Used to detect environment options. Right now there is only one property:
+
+```
+/// Return `true` if running unit tests
+Environment.isRunningUnitTests
+```
+
 ## TODO
 
-- [x] Detect battery state
-- [x] Add tvOS support
+- [ ] Detect battery state
+- [ ] Add tvOS support
 - [x] Detect XCTest environment
 
 Write me or make a pull request if you have any ideas what else functionality can be useful in this repo.

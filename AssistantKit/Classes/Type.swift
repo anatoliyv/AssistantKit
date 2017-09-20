@@ -8,13 +8,13 @@
 
 import Foundation
 
-/**
- - Parameter Phone:
- - Parameter Pad:
- - Parameter Pod:
- - Parameter Simulator:
- - Parameter Unknown
- */
+/// Device types
+///
+/// - Parameter phone:
+/// - Parameter pad:
+/// - Parameter pod:
+/// - Parameter simulator:
+/// - Parameter unknown
 public enum Type: String {
     case phone
     case pad
@@ -23,9 +23,7 @@ public enum Type: String {
     case unknown
 }
 
-/**
- Exact device version
- */
+/// Exact device version
 public enum Version: String {
     case phone4
     case phone4S
@@ -112,17 +110,15 @@ public enum Version: String {
     }
 }
 
-/**
- Used to determinate device type
- */
+/// Used to determinate device type
 extension Device {
 
-    static fileprivate func versionCode() -> String {
+    /// Return raw device version code string or empty string if any problem appears.
+    static public var versionCode: String {
         var systemInfo = utsname()
         uname(&systemInfo)
 
-        if let
-            info = NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN), encoding: String.Encoding.ascii.rawValue),
+        if  let info = NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN), encoding: String.Encoding.ascii.rawValue),
             let code = String(validatingUTF8: info.utf8String!)
         {
             return code
@@ -131,12 +127,11 @@ extension Device {
         return ""
     }
 
-    /**
-     Return device type
-     - Seealso: Type
-    */
+    /// Return device type
+    ///
+    /// - seealso: Type
     static public var type: Type {
-        let versionCode = Device.versionCode()
+        let versionCode = Device.versionCode
 
         switch versionCode {
         case "iPhone3,1", "iPhone3,2", "iPhone3,3",
@@ -146,7 +141,7 @@ extension Device {
              "iPhone6,1", "iPhone6,2",
              "iPhone7,2", "iPhone7,1",
              "iPhone8,1", "iPhone8,2", "iPhone8,4",
-             "iPhone9,1", "iPhone9,2":
+             "iPhone9,1", "iPhone9,2", "iPhone9,3", "iPhone9,4":
             return .phone
 
         case "iPad1,1",
@@ -201,7 +196,7 @@ extension Device {
     // MARK: Version
 
     static public var version: Version {
-        let versionCode = Device.versionCode()
+        let versionCode = Device.versionCode
 
         switch versionCode {
         // Phones
@@ -235,10 +230,10 @@ extension Device {
         case "iPhone8,4":
             return .phoneSE
 
-        case "iPhone9,1":
+        case "iPhone9,1", "iPhone9,3":
             return .phone7
 
-        case "iPhone9,2":
+        case "iPhone9,2", "iPhone9,4":
             return .phone7Plus
 
 

@@ -8,15 +8,8 @@
 
 import Foundation
 
-/**
- Detecting iOS version
- */
+/// Detecting iOS version
 extension Device {
-
-    /// Current iOS version in as float
-    static public var osVersion: Float {
-        return Float(UIDevice.current.systemVersion)!
-    }
 
     /// Current iOS version as string
     static public var osVersionString: String {
