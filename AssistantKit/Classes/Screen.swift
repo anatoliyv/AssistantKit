@@ -59,6 +59,18 @@ public func <(lhs: Screen, rhs: Screen) -> Bool {
     return lhs.rawValue < rhs.rawValue
 }
 
+public func >(lhs: Screen, rhs: Screen) -> Bool {
+    return lhs.rawValue > rhs.rawValue
+}
+
+public func <=(lhs: Screen, rhs: Screen) -> Bool {
+    return lhs.rawValue <= rhs.rawValue
+}
+
+public func >=(lhs: Screen, rhs: Screen) -> Bool {
+    return lhs.rawValue >= rhs.rawValue
+}
+
 /// Comparing Screen and Device
 
 public func ==(lhs: Screen, rhs: Version) -> Bool {
@@ -67,6 +79,18 @@ public func ==(lhs: Screen, rhs: Version) -> Bool {
 
 public func <(lhs: Screen, rhs: Version) -> Bool {
     return lhs < rhs.screen
+}
+
+public func >(lhs: Screen, rhs: Version) -> Bool {
+    return lhs > rhs.screen
+}
+
+public func <=(lhs: Screen, rhs: Version) -> Bool {
+    return lhs <= rhs.screen
+}
+
+public func >=(lhs: Screen, rhs: Version) -> Bool {
+    return lhs >= rhs.screen
 }
 
 /// These parameters are used to groups device screens into 4 groups:
@@ -103,6 +127,18 @@ public func ==(lhs: Scale, rhs: Scale) -> Bool {
 
 public func <(lhs: Scale, rhs: Scale) -> Bool {
     return lhs.rawValue < rhs.rawValue
+}
+
+public func >(lhs: Scale, rhs: Scale) -> Bool {
+    return lhs.rawValue < rhs.rawValue
+}
+
+public func <=(lhs: Scale, rhs: Scale) -> Bool {
+    return lhs.rawValue <= rhs.rawValue
+}
+
+public func >=(lhs: Scale, rhs: Scale) -> Bool {
+    return lhs.rawValue >= rhs.rawValue
 }
 
 /// Detecting screen properties

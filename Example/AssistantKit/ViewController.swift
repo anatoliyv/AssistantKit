@@ -32,43 +32,57 @@ class ViewController: UIViewController {
         let fileWithPath = "somefolder/other_file.data"
 
         print("*** Global paths")
-        print("Documents URL:   " + String(describing: Bundle.documentsDirectoryURL))
-        print("Documents path:  " + String(Bundle.documentsDirectoryPath))
-        print("Caches URL:      " + String(describing: Bundle.cachesDirectoryURL))
-        print("Caches path:     " + String(Bundle.cachesDirectoryPath))
+        print("Documents URL:           " + String(describing: Bundle.documentsDirectoryURL))
+        print("Documents path:          " + String(Bundle.documentsDirectoryPath))
+        print("Caches URL:              " + String(describing: Bundle.cachesDirectoryURL))
+        print("Caches path:             " + String(Bundle.cachesDirectoryPath))
         print()
 
-        print("Paths for file:  " + file)
-        print("Documents:       " + Bundle.filePathInDocumentsDirectory(toFile: file))
-        print("Caches:          " + Bundle.filePathInCachesDirectory(toFile: file))
+        print("Paths for file:          " + file)
+        print("Documents:               " + Bundle.filePathInDocumentsDirectory(toFile: file))
+        print("Caches:                  " + Bundle.filePathInCachesDirectory(toFile: file))
         print()
 
-        print("Paths for file:  " + fileWithPath)
-        print("Documents:       " + Bundle.filePathInDocumentsDirectory(toFile: fileWithPath))
-        print("Caches:          " + Bundle.filePathInCachesDirectory(toFile: fileWithPath))
+        print("Paths for file:          " + fileWithPath)
+        print("Documents:               " + Bundle.filePathInDocumentsDirectory(toFile: fileWithPath))
+        print("Caches:                  " + Bundle.filePathInCachesDirectory(toFile: fileWithPath))
         print()
     }
 
     func testBundleVersions() {
         print("*** Bundle versions")
-        print("Version:         " + Bundle.bundleVersion)
-        print("Short version:   " + Bundle.bundleShortVersion)
-        print("Identifier:      " + Bundle.bundleIdentifier)
+        print("Version:                 " + Bundle.bundleVersion)
+        print("Short version:           " + Bundle.bundleShortVersion)
+        print("Identifier:              " + Bundle.bundleIdentifier)
         print()
     }
 
     func testDeviceScreen() {
         print("*** Screen")
-        print("screen:          " + String(describing: Device.screen.rawValue))
-        print("scale:           " + String(describing: Device.scale.rawValue))
-        print("isRetina:        " + String(Device.isRetina))
-        print("isPortrait:      " + String(Device.isPortrait))
-        print("isLandscape:     " + String(Device.isLandscape))
+        print("screen:                  " + String(describing: Device.screen.rawValue))
+        print("scale:                   " + String(describing: Device.scale.rawValue))
+        print("isRetina:                " + String(Device.isRetina))
+        print("isPortrait:              " + String(Device.isPortrait))
+        print("isLandscape:             " + String(Device.isLandscape))
         print()
 
-        print("family:          " + String(Device.screen.family.rawValue))
-        print("size for device: " + String(Device.size(phone: "phone size", pad: "pad size")))
-        print("size for family: " + String(Device.size(small: "small family", medium: "medium family", big: "big family")))
+        print("4.7 == 4.7:              " + String(Screen.inches_4_7 == Screen.inches_4_7))
+        print("4.0 < 4.7:               " + String(Screen.inches_4_0 < Screen.inches_4_7))
+        print("4.0 > 4.7:               " + String(Screen.inches_4_0 > Screen.inches_4_7))
+        print("4.0 >= 4.7:              " + String(Screen.inches_4_0 > Screen.inches_4_7))
+        print()
+        
+        print("4.7 < iPhone6:           " + String(Screen.inches_4_7 < Version.phone6))
+        print("4.7 <= iPhone6:          " + String(Screen.inches_4_7 <= Version.phone6))
+        print("4.7 > iPhone6:           " + String(Screen.inches_4_7 > Version.phone6))
+        print("4.7 >= iPhone6:          " + String(Screen.inches_4_7 >= Version.phone6))
+        print("4.7 == iPhone6:          " + String(Screen.inches_4_7 == Version.phone6))
+        print("4.7 == iPhone6 Plus:     " + String(Screen.inches_4_7 == Version.phone6Plus))
+        print()
+
+        print("family:                  " + String(Device.screen.family.rawValue))
+        print("size for device:         " + String(Device.size(phone: "phone size", pad: "pad size")))
+        print("size for family:         " + String(Device.size(small: "small family", medium: "medium family", big: "big family")))
 
         let sizes: [Screen:Any] = [
             .inches_3_5: 12,
@@ -77,18 +91,18 @@ class ViewController: UIViewController {
             .inches_9_7: 15
         ]
         let exactSize = Device.size(sizes: sizes) as! Int
-        print("exact size:      " + String(exactSize))
+        print("exact size:              " + String(exactSize))
         print()
     }
 
     func testDeviceType() {
         print("*** Device Type")
-        print("type:            " + String(Device.type.rawValue))
-        print("version:         " + String(Device.version.rawValue))
-        print("isPhone:         " + String(Device.isPhone))
-        print("isPad:           " + String(Device.isPad))
-        print("isPadPro:        " + String(Device.isPadPro))
-        print("isSimulator:     " + String(Device.isSimulator))
+        print("type:                    " + String(Device.type.rawValue))
+        print("version:                 " + String(Device.version.rawValue))
+        print("isPhone:                 " + String(Device.isPhone))
+        print("isPad:                   " + String(Device.isPad))
+        print("isPadPro:                " + String(Device.isPadPro))
+        print("isSimulator:             " + String(Device.isSimulator))
         print()
     }
 
@@ -96,18 +110,18 @@ class ViewController: UIViewController {
         let version = Device.osVersionString
 
         print("*** iOS")
-        print("OS String        " + String(Device.osVersionString))
-        print("> 9.0            " + String(Device.osVersionGreaterThan("9.0")))
-        print("< 9.0            " + String(Device.osVersionLessThan("9.0")))
-        print("==               " + String(Device.osVersionEqualTo(version)))
-        print(">= 9.0           " + String(Device.osVersionEqualTo("9.0")))
-        print("<= 9.0           " + String(Device.osVersionEqualTo("9.0")))
+        print("OS String                " + String(Device.osVersionString))
+        print("> 9.0                    " + String(Device.osVersionGreaterThan("9.0")))
+        print("< 9.0                    " + String(Device.osVersionLessThan("9.0")))
+        print("==                       " + String(Device.osVersionEqualTo(version)))
+        print(">= 9.0                   " + String(Device.osVersionEqualTo("9.0")))
+        print("<= 9.0                   " + String(Device.osVersionEqualTo("9.0")))
         print()
     }
     
     func testEnvironment() {
         print("*** Environment")
-        print("isRunningUnitTests:" + String(Environment.isRunningUnitTests))
+        print("isRunningUnitTests:      " + String(Environment.isRunningUnitTests))
         print()
     }
 

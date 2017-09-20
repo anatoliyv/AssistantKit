@@ -61,10 +61,9 @@ public enum Version: String {
 
     case unknown
     
-    /**
-     Return device screen
-     - Seealso: Screen
-     */
+    /// Return device screen
+    ///
+    /// - seealso: Screen
     public var screen: Screen {
         switch self {
         case .podTouch1,
@@ -74,6 +73,7 @@ public enum Version: String {
              .phone4,
              .phone4S:
             return .inches_3_5
+            
         case .podTouch5,
              .podTouch6,
              .phone5,
@@ -81,19 +81,23 @@ public enum Version: String {
              .phone5S,
              .phoneSE:
             return .inches_4_0
+            
         case .phone6,
              .phone6S,
              .phone7:
             return .inches_4_7
+            
         case .phone6Plus,
              .phone6SPlus,
              .phone7Plus:
             return .inches_5_5
+            
         case .padMini,
              .padMini2,
              .padMini3,
              .padMini4:
             return .inches_7_9
+            
         case .pad1,
              .pad2,
              .pad3,
@@ -101,10 +105,11 @@ public enum Version: String {
              .padAir,
              .padAir2:
             return .inches_9_7
+            
         case .padPro:
             return .inches_12_9
-        case .simulator,
-             .unknown:
+            
+        default:
             return .unknown
         }
     }

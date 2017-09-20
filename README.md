@@ -123,6 +123,14 @@ default:           print("Other display")
 }
 ```
 
+### Compare screens
+
+`Screen` is cinfirming to `Comparable` protocol:
+
+```
+Screen.inches_3_5 < Screen.inches_4_0 // Will be `true`
+```
+
 ### Detecting screen family
 
 Often it is required to assign different parameters based on specific screen resolution.
