@@ -49,6 +49,26 @@ public enum Screen: CGFloat {
     }
 }
 
+/// Comparing Screen and Screen
+
+public func ==(lhs: Screen, rhs: Screen) -> Bool {
+    return lhs.rawValue == rhs.rawValue
+}
+
+public func <(lhs: Screen, rhs: Screen) -> Bool {
+    return lhs.rawValue < rhs.rawValue
+}
+
+/// Comparing Screen and Device
+
+public func ==(lhs: Screen, rhs: Version) -> Bool {
+    return lhs == rhs.screen
+}
+
+public func <(lhs: Screen, rhs: Version) -> Bool {
+    return lhs < rhs.screen
+}
+
 /// These parameters are used to groups device screens into 4 groups:
 ///
 /// - parameter unknown:
@@ -66,10 +86,10 @@ public enum ScreenFamily: String {
 
 /// Different types of screen scales
 ///
-/// - Parameter x1:
-/// - Parameter x2:
-/// - Parameter x3:
-/// - Parameter unknown:
+/// - parameter x1:
+/// - parameter x2:
+/// - parameter x3:
+/// - parameter unknown:
 public enum Scale: CGFloat, Comparable, Equatable {
     case x1      = 1.0
     case x2      = 2.0
