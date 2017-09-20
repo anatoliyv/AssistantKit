@@ -13,6 +13,9 @@ Easy way to detect device environment:
 - [x] [Screen resolution](https://github.com/anatoliyv/AssistantKit#device-screen-parameters)
 - [x] [Interface orientation](https://github.com/anatoliyv/AssistantKit#interface-orientation)
 - [x] [iOS version](https://github.com/anatoliyv/AssistantKit#detecting-and-comparing-ios-version)
+- [x] [Battery state](https://github.com/anatoliyv/AssistantKit#battery)
+- [x] [Environment](https://github.com/anatoliyv/AssistantKit#environment)
+
 
 Helps to:
 - [x] [work with bundle Document and Cache folders](https://github.com/anatoliyv/AssistantKit/blob/master/README.md#working-with-directories)
@@ -291,9 +294,7 @@ Device.Battery.level // in range 0...1 -1 for simulators
 
 ## TODO
 
-- [x] Detect battery state
 - [ ] Add tvOS support
-- [x] Detect XCTest environment
 
 Write me or make a pull request if you have any ideas what else functionality can be useful in this repo.
 
