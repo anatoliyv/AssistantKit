@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.2](https://github.com/anatoliyv/AssistantKit/tree/0.2) (2017-09-20)
+ [Full Changelog](https://github.com/anatoliyv/AssistantKit/compare/0.0.2...0.2)
+
+ - Device Battery support added
+ - Environment struct added to provide different env variables
+ - Screen and Version Comparable protocol implementation
+ - Crash with `osVersion: Float` fixed
+
 ## [0.0.2](https://github.com/anatoliyv/AssistantKit/tree/0.0.2) (2016-06-09)
 [Full Changelog](https://github.com/anatoliyv/AssistantKit/compare/0.0.1...0.0.2)
 
