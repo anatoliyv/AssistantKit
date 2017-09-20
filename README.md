@@ -271,7 +271,7 @@ Bundle.filePathInDocumentsDirectory(toFile: filePath)  // Path to file in .Docum
 Bundle.filePathInCachesDirectory(toFile: filePath)     // Path to file in .CachesDirectory
 ```
 
-### Environment
+## Environment
 
 Used to detect environment options. Right now there is only one property:
 
@@ -280,9 +280,18 @@ Used to detect environment options. Right now there is only one property:
 Environment.isRunningUnitTests
 ```
 
+## Battery
+
+There is a way to get battery state and level with these methods. It will enable monitoring if it's not enabled yet.
+
+```
+Device.Battery.state // Represent `UIDeviceBatteryState`
+Device.Battery.level // in range 0...1 -1 for simulators
+```
+
 ## TODO
 
-- [ ] Detect battery state
+- [x] Detect battery state
 - [ ] Add tvOS support
 - [x] Detect XCTest environment
 

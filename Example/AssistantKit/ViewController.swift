@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         testDeviceType()
         testDeviceOS()
         testEnvironment()
+        testBattery()
         testCodeExamples()
     }
 
@@ -116,6 +117,13 @@ class ViewController: UIViewController {
         print("==                       " + String(Device.osVersionEqualTo(version)))
         print(">= 9.0                   " + String(Device.osVersionEqualTo("9.0")))
         print("<= 9.0                   " + String(Device.osVersionEqualTo("9.0")))
+        print()
+    }
+    
+    func testBattery() {
+        print("*** Battery")
+        print("State:                   " + String(Device.Battery.state.rawValue))
+        print("Level:                   " + String(Device.Battery.level))
         print()
     }
     

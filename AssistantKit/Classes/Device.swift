@@ -177,3 +177,27 @@ extension Device {
         return !Device.isLandscape
     }
 }
+
+/// Battery state
+extension Device {
+    
+    public struct Battery {
+        
+        /// Return battery state
+        static public var state: UIDeviceBatteryState {
+            enableBatteryMonitoringIfNecessary()
+            return UIDevice.current.batteryState
+        }
+        
+        /// Battery level from 0.0 to 1.0. Will enable monitoring if not enabled.
+        static public var level: Float {
+            enableBatteryMonitoringIfNecessary()
+            return UIDevice.current.batteryLevel
+        }
+        
+        static private func enableBatteryMonitoringIfNecessary() {
+            guard !UIDevice.current.isBatteryMonitoringEnabled else { return }
+            UIDevice.current.isBatteryMonitoringEnabled = true
+        }
+    }
+}
