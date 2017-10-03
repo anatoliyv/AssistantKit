@@ -248,15 +248,23 @@ Device.isPortrait  // true if portrait
 You can detect iOS version in runtime. There are next different methods that will help you to
 do it:
 
-```swift
-Device.osVersionString                         // Current version as a String i.e. "9.3"
+ ```swift
+ Device.osVersion                               // Current version as a `OSVersion` model
 
-Device.osVersionEqualTo("9.0")                 // true if iOS 9.0
-Device.osVersionGreaterThan("9.0")             // true if iOS > 9.0
-Device.osVersionGreaterThanOrEqualTo("9.0")    // true if iOS >= 9.0
-Device.osVersionLessThan("9.0")                // true if iOS < 9.0
-Device.osVersionLessThanOrEqualTo("9.0")       // true if iOS <= 9.0
-```
+ Device.osVersion == Device.os9                 // true if iOS 9.0
+ Device.osVersion >= Device.os9                 // true if iOS >= 9.0
+ Device.osVersion < Device.os11                 // true if iOS < 11.0
+ etc.
+ ```
+
+There are next constants representating Main iOS versions:
+
+ ```swift
+ Device.os8
+ Device.os9
+ Device.os10
+ Device.os11
+ ```
 
 ### Working with directories
 

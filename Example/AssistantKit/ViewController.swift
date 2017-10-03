@@ -34,9 +34,9 @@ class ViewController: UIViewController {
 
         print("*** Global paths")
         print("Documents URL:           " + String(describing: Bundle.documentsDirectoryURL))
-        print("Documents path:          " + String(Bundle.documentsDirectoryPath))
+        print("Documents path:          " + String(describing: Bundle.documentsDirectoryPath))
         print("Caches URL:              " + String(describing: Bundle.cachesDirectoryURL))
-        print("Caches path:             " + String(Bundle.cachesDirectoryPath))
+        print("Caches path:             " + String(describing: Bundle.cachesDirectoryPath))
         print()
 
         print("Paths for file:          " + file)
@@ -67,18 +67,18 @@ class ViewController: UIViewController {
         print("isLandscape:             " + String(Device.isLandscape))
         print()
 
-        print("4.7 == 4.7:              " + String(Screen.inches_4_7 == Screen.inches_4_7))
-        print("4.0 < 4.7:               " + String(Screen.inches_4_0 < Screen.inches_4_7))
-        print("4.0 > 4.7:               " + String(Screen.inches_4_0 > Screen.inches_4_7))
-        print("4.0 >= 4.7:              " + String(Screen.inches_4_0 > Screen.inches_4_7))
+        print("4.7 == 4.7:              " + String(describing: Screen.inches_4_7 == Screen.inches_4_7))
+        print("4.0 < 4.7:               " + String(describing: Screen.inches_4_0 < Screen.inches_4_7))
+        print("4.0 > 4.7:               " + String(describing: Screen.inches_4_0 > Screen.inches_4_7))
+        print("4.0 >= 4.7:              " + String(describing: Screen.inches_4_0 > Screen.inches_4_7))
         print()
         
-        print("4.7 < iPhone6:           " + String(Screen.inches_4_7 < Version.phone6))
-        print("4.7 <= iPhone6:          " + String(Screen.inches_4_7 <= Version.phone6))
-        print("4.7 > iPhone6:           " + String(Screen.inches_4_7 > Version.phone6))
-        print("4.7 >= iPhone6:          " + String(Screen.inches_4_7 >= Version.phone6))
-        print("4.7 == iPhone6:          " + String(Screen.inches_4_7 == Version.phone6))
-        print("4.7 == iPhone6 Plus:     " + String(Screen.inches_4_7 == Version.phone6Plus))
+        print("4.7 < iPhone6:           " + String(describing: Screen.inches_4_7 < Version.phone6))
+        print("4.7 <= iPhone6:          " + String(describing: Screen.inches_4_7 <= Version.phone6))
+        print("4.7 > iPhone6:           " + String(describing: Screen.inches_4_7 > Version.phone6))
+        print("4.7 >= iPhone6:          " + String(describing: Screen.inches_4_7 >= Version.phone6))
+        print("4.7 == iPhone6:          " + String(describing: Screen.inches_4_7 == Version.phone6))
+        print("4.7 == iPhone6 Plus:     " + String(describing: Screen.inches_4_7 == Version.phone6Plus))
         print()
 
         print("family:                  " + String(Device.screen.family.rawValue))
@@ -108,28 +108,35 @@ class ViewController: UIViewController {
     }
 
     func testDeviceOS() {
-        let version = Device.osVersionString
-
         print("*** iOS")
-        print("OS String                " + String(Device.osVersionString))
-        print("> 9.0                    " + String(Device.osVersionGreaterThan("9.0")))
-        print("< 9.0                    " + String(Device.osVersionLessThan("9.0")))
-        print("==                       " + String(Device.osVersionEqualTo(version)))
-        print(">= 9.0                   " + String(Device.osVersionEqualTo("9.0")))
-        print("<= 9.0                   " + String(Device.osVersionEqualTo("9.0")))
+        print("OS String                " + String(describing: Device.osVersion))
+        print("> 9.0                    " + String(describing: Device.osVersion > Device.os9))
+        print("< 9.0                    " + String(describing: Device.osVersion < Device.os9))
+        print("== 11.0                  " + String(describing: Device.osVersion == Device.os11))
+        print(">= 9.0                   " + String(describing: Device.osVersion >= Device.os9))
+        print("<= 9.0                   " + String(describing: Device.osVersion <= Device.os9))
+        print()
+
+        let testVersion = Device.OSVersion("10.3.2")
+        print("Test version             " + String(describing: testVersion))
+        print("<= 10.3.2                " + String(describing: testVersion <= Device.OSVersion("10.3.2")))
+        print(">= 10.3.2                " + String(describing: testVersion >= Device.OSVersion("10.3.2")))
+        print("== 10.3.2                " + String(describing: testVersion == Device.OSVersion("10.3.2")))
+        print("< 10.3.2                 " + String(describing: testVersion < Device.OSVersion("10.3.2")))
+        print("> 10.3.2                 " + String(describing: testVersion > Device.OSVersion("10.3.2")))
         print()
     }
     
     func testBattery() {
         print("*** Battery")
-        print("State:                   " + String(Device.Battery.state.rawValue))
-        print("Level:                   " + String(Device.Battery.level))
+        print("State:                   " + String(describing: Device.Battery.state.rawValue))
+        print("Level:                   " + String(describing: Device.Battery.level))
         print()
     }
     
     func testEnvironment() {
         print("*** Environment")
-        print("isRunningUnitTests:      " + String(Environment.isRunningUnitTests))
+        print("isRunningUnitTests:      " + String(describing: Environment.isRunningUnitTests))
         print()
     }
 
