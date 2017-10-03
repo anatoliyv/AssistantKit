@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.3](https://github.com/anatoliyv/AssistantKit/tree/0.3) (2017-10-03)
+ [Full Changelog](https://github.com/anatoliyv/AssistantKit/compare/0.2...0.3)
+
+ - Better system version implementation with `Device.OSVersion` model
+
 ## [0.2](https://github.com/anatoliyv/AssistantKit/tree/0.2) (2017-09-20)
  [Full Changelog](https://github.com/anatoliyv/AssistantKit/compare/0.0.2...0.2)
 
