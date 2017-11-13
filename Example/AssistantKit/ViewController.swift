@@ -85,14 +85,15 @@ class ViewController: UIViewController {
         print("size for device:         " + String(Device.size(phone: "phone size", pad: "pad size")))
         print("size for family:         " + String(Device.size(small: "small family", medium: "medium family", big: "big family")))
 
-        let sizes: [Screen:Any] = [
-            .inches_3_5: 12,
-            .inches_4_0: 13,
-            .inches_5_5: 14,
-            .inches_9_7: 15
+        let sizes: [Screen:Double] = [
+            .inches_3_5: 3.5,
+            .inches_4_0: 4.0,
+            .inches_5_5: 5.5,
+            .inches_5_8: 5.8,
+            .inches_9_7: 9.7,
         ]
-        let exactSize = Device.size(sizes: sizes) as! Int
-        print("exact size:              " + String(exactSize))
+        let exactSize = Device.size(sizes: sizes)
+        print("exact size:              " + String(describing: exactSize))
         print()
     }
 
@@ -100,6 +101,7 @@ class ViewController: UIViewController {
         print("*** Device Type")
         print("type:                    " + String(Device.type.rawValue))
         print("version:                 " + String(Device.version.rawValue))
+        print("screen:                  " + String(describing: Device.screen))
         print("isPhone:                 " + String(Device.isPhone))
         print("isPad:                   " + String(Device.isPad))
         print("isPadPro:                " + String(Device.isPadPro))

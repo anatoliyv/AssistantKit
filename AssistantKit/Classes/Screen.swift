@@ -24,6 +24,7 @@ public enum Screen: CGFloat {
     case inches_4_0  = 4.0
     case inches_4_7  = 4.7
     case inches_5_5  = 5.5
+    case inches_5_8  = 5.8 // iPhone X diagonal
     case inches_7_9  = 7.9
     case inches_9_7  = 9.7
     case inches_12_9 = 12.9
@@ -37,13 +38,13 @@ public enum Screen: CGFloat {
         case .inches_4_7:
             return .small
 
-        case .inches_5_5, .inches_7_9:
+        case .inches_5_5, .inches_7_9, .inches_5_8:
             return .medium
 
         case .inches_9_7, .inches_12_9:
             return .big
 
-        default:
+        case .unknown:
             return .unknown
         }
     }
@@ -163,6 +164,9 @@ extension Device {
 
         case 736:
             return .inches_5_5
+
+        case 812:
+            return .inches_5_8
 
         case 1024:
             switch version {

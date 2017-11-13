@@ -31,7 +31,7 @@ extension Device {
             let string = version.trimmingCharacters(in: characters.inverted)
             let clearedString = version.trimmingCharacters(in: characters)
 
-            if clearedString.characters.count > 0 {
+            if clearedString.count > 0 {
                 print("WARNING: Wrong delimiter used for AppVersion: \(version). Will remove it.")
             }
 
