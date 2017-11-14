@@ -94,6 +94,7 @@ There are few properties that detect device type
 
 ```swift
 Device.isPhone     // true for iPhones even if it's Simulator
+Device.isPhoneX    // true for iPhoneX even if it's Simulator
 Device.isPad       // true for iPads even if it's Simulator
 Device.isPadPro    // true for iPad Pros even if it's Simulator
 Device.isPod       // true for iPods

@@ -43,6 +43,7 @@ import UIKit
 ///
 /// ```
 /// Device.isPhone     // true for iPhones
+/// Device.isPhoneX    // true for iPhoneX
 /// Device.isPad       // true for iPads
 /// Device.isPadPro    // true for iPadPros
 /// ```

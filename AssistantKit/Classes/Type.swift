@@ -197,6 +197,11 @@ extension Device {
         return !isPad
     }
 
+    /// Return `true` for iPahoneX
+    static public var isPhoneX: Bool {
+        return isPhone && screen == .inches_5_8
+    }
+
     /// Return `true` for iPadPro
     static public var isPadPro: Bool {
         return isPad && screen == .inches_12_9

@@ -103,6 +103,7 @@ class ViewController: UIViewController {
         print("version:                 " + String(Device.version.rawValue))
         print("screen:                  " + String(describing: Device.screen))
         print("isPhone:                 " + String(Device.isPhone))
+        print("isPhoneX:                " + String(Device.isPhoneX))
         print("isPad:                   " + String(Device.isPad))
         print("isPadPro:                " + String(Device.isPadPro))
         print("isSimulator:             " + String(Device.isSimulator))
