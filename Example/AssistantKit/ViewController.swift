@@ -156,6 +156,12 @@ class ViewController: UIViewController {
         case .phone6S:      print("iPhone 6S")
         case .phone6Plus:   print("iPhone 6 Plus")
         case .phone6SPlus:  print("iPhone 6 S Plus")
+        case .phoneSE:      print("iPhone SE")
+        case .phone7:       print("iPhone 7")
+        case .phone7Plus:   print("iPhone 7 Plus")
+        case .phone8:       print("iPhone 8")
+        case .phone8Plus:   print("iPhone 8 Plus")
+        case .phoneX:       print("iPhone X")
 
         case .pad1:         print("iPad 1")
         case .pad2:         print("iPad 2")

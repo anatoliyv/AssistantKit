@@ -261,7 +261,7 @@ extension Device {
         case "iPhone10,2", "iPhone10,5":
             return .phone8Plus
 
-        case "iPhone10,3":
+        case "iPhone10,3", "iPhone10,6":
             return .phoneX
 
 
