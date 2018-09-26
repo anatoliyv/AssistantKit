@@ -25,6 +25,8 @@ public enum Screen: CGFloat {
     case inches_4_7  = 4.7
     case inches_5_5  = 5.5
     case inches_5_8  = 5.8 // iPhone X diagonal
+    case inches_6_1  = 6.1
+    case inches_6_5  = 6.5
     case inches_7_9  = 7.9
     case inches_9_7  = 9.7
     case inches_12_9 = 12.9
@@ -38,7 +40,7 @@ public enum Screen: CGFloat {
         case .inches_4_7:
             return .small
 
-        case .inches_5_5, .inches_7_9, .inches_5_8:
+        case .inches_5_5, .inches_7_9, .inches_5_8, .inches_6_1, .inches_6_5:
             return .medium
 
         case .inches_9_7, .inches_12_9:
@@ -139,7 +141,7 @@ public func <(lhs: Scale, rhs: Scale) -> Bool {
 
 public func >(lhs: Scale, rhs: Scale) -> Bool {
     guard lhs.rawValue > 0 && rhs.rawValue > 0 else { return false }
-    return lhs.rawValue < rhs.rawValue
+    return lhs.rawValue > rhs.rawValue
 }
 
 public func <=(lhs: Scale, rhs: Scale) -> Bool {
@@ -177,6 +179,9 @@ extension Device {
 
         case 812:
             return .inches_5_8
+
+        case 896:
+            return ( scale == .x3 ? .inches_6_5 : .inches_6_1 )
 
         case 1024:
             switch version {
@@ -252,7 +257,7 @@ extension Device {
         case .big:
             return big
 
-        default:
+        case .unknown:
             return small
         }
     }
