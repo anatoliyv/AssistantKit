@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/AssistantKit.svg?style=flat)](http://cocoapods.org/pods/AssistantKit)
 [![Platform](https://img.shields.io/cocoapods/p/AssistantKit.svg?style=flat)](http://cocoapods.org/pods/AssistantKit)
 ![](https://img.shields.io/badge/Supported-iOS8-4BC51D.svg?style=flat)
-![](https://img.shields.io/badge/Swift 3-compatible-4BC51D.svg?style=flat)
+![](https://img.shields.io/badge/Swift3-compatible-4BC51D.svg?style=flat)
 
 
 Easy way to detect device environment:
@@ -13,6 +13,9 @@ Easy way to detect device environment:
 - [x] [Screen resolution](https://github.com/anatoliyv/AssistantKit#device-screen-parameters)
 - [x] [Interface orientation](https://github.com/anatoliyv/AssistantKit#interface-orientation)
 - [x] [iOS version](https://github.com/anatoliyv/AssistantKit#detecting-and-comparing-ios-version)
+- [x] [Battery state](https://github.com/anatoliyv/AssistantKit#battery)
+- [x] [Environment](https://github.com/anatoliyv/AssistantKit#environment)
+
 
 Helps to:
 - [x] [work with bundle Document and Cache folders](https://github.com/anatoliyv/AssistantKit/blob/master/README.md#working-with-directories)
@@ -91,10 +94,17 @@ There are few properties that detect device type
 
 ```swift
 Device.isPhone     // true for iPhones even if it's Simulator
+Device.isPhoneX    // true for iPhoneX even if it's Simulator
 Device.isPad       // true for iPads even if it's Simulator
 Device.isPadPro    // true for iPad Pros even if it's Simulator
 Device.isPod       // true for iPods
 Device.isSimulator // true for Simulators
+```
+
+To get raw device code use
+
+```
+Device.versionCode
 ```
 
 ### Device screen parameters
@@ -117,6 +127,14 @@ default:           print("Other display")
 }
 ```
 
+### Compare screens
+
+`Screen` is cinfirming to `Comparable` protocol:
+
+```
+Screen.inches_3_5 < Screen.inches_4_0 // Will be `true`
+```
+
 ### Detecting screen family
 
 Often it is required to assign different parameters based on specific screen resolution.
@@ -124,7 +142,8 @@ There are 3 methods that will help you to detect what parameters to use. But
 first of all let me introduce `ScreenFamily`.
 
 This is enum that breaks all possible screens into 3 groups:
-- `.small`:        All iPhones/iPods without iPhone 6 Plus
+- `.old`:          Reproduce old iPhones with 3.5 and 4.0 inches screens
+- `.small`:        Other iPhones/iPods without iPhone 6 Plus
 - `.medium`:       iPhone 6 Plus and iPad Mini
 - `.big`:          iPad and iPad Pro
 
@@ -227,19 +246,26 @@ Device.isPortrait  // true if portrait
 
 ## Detecting and comparing iOS version
 
-You can detect iOS version in runtime. There are 5 different methods that will help you to
-detect it:
+You can detect iOS version in runtime. There are next different methods that will help you to
+do it:
 
-```swift
-Device.osVersionString                         // Current version as a String i.e. "9.3"
-Device.osVersion                               // Current version as a Float i.e. 9.3
+ ```swift
+ Device.osVersion                               // Current version as a `OSVersion` model
 
-Device.osVersionEqualTo("9.0")                 // true if iOS 9.0
-Device.osVersionGreaterThan("9.0")             // true if iOS > 9.0
-Device.osVersionGreaterThanOrEqualTo("9.0")    // true if iOS >= 9.0
-Device.osVersionLessThan("9.0")                // true if iOS < 9.0
-Device.osVersionLessThanOrEqualTo("9.0")       // true if iOS <= 9.0
-```
+ Device.osVersion == Device.os9                 // true if iOS 9.0
+ Device.osVersion >= Device.os9                 // true if iOS >= 9.0
+ Device.osVersion < Device.os11                 // true if iOS < 11.0
+ etc.
+ ```
+
+There are next constants representating Main iOS versions:
+
+ ```swift
+ Device.os8
+ Device.os9
+ Device.os10
+ Device.os11
+ ```
 
 ### Working with directories
 
@@ -257,11 +283,27 @@ Bundle.filePathInDocumentsDirectory(toFile: filePath)  // Path to file in .Docum
 Bundle.filePathInCachesDirectory(toFile: filePath)     // Path to file in .CachesDirectory
 ```
 
+## Environment
+
+Used to detect environment options. Right now there is only one property:
+
+```
+/// Return `true` if running unit tests
+Environment.isRunningUnitTests
+```
+
+## Battery
+
+There is a way to get battery state and level with these methods. It will enable monitoring if it's not enabled yet.
+
+```
+Device.Battery.state // Represent `UIDeviceBatteryState`
+Device.Battery.level // in range 0...1 -1 for simulators
+```
+
 ## TODO
 
-- [x] Detect battery state
-- [x] Add tvOS support
-- [x] Detect XCTest environment
+- [ ] Add tvOS support
 
 Write me or make a pull request if you have any ideas what else functionality can be useful in this repo.
 

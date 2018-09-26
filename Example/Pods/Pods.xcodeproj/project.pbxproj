@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08B386182444BCE4E58C7A647DF07FE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		1C19B2151F71E3D200984A65 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C19B2141F71E3D200984A65 /* Environment.swift */; };
 		7116079AE6710E4CEA883C3FE6411878 /* AssistantKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 90F025BF105F0CB09D85E6B393EE562B /* AssistantKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79691E91EF08D38980651D07DAA9071F /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33D093158418787F0DA4CA99A7BC61 /* Device.swift */; };
 		817A73933CB0E29EA922DF32F2BA2F55 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEBAE7BFF2795CF2F83754516102A12 /* Screen.swift */; };
@@ -39,6 +40,7 @@
 		14C50C7785DBD474BC61C9BE0C09FBC2 /* Pods-AssistantKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AssistantKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		18671FFEA623ECE02E267AC5E2D2BAAF /* Pods-AssistantKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AssistantKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		196115A7717A06A64BCA6CA4A45B2EB4 /* Pods_AssistantKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssistantKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C19B2141F71E3D200984A65 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		2F5108A5E13F1161BCFEFC0CB594E72B /* Pods-AssistantKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AssistantKit_Example-umbrella.h"; sourceTree = "<group>"; };
 		2FA3728EBD02BFB7C5EB8BC202318C78 /* Pods-AssistantKit_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AssistantKit_Example-resources.sh"; sourceTree = "<group>"; };
 		3407B1A2CC9A5AF71A92773CB4785474 /* Pods-AssistantKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AssistantKit_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				A5EEC2A9330242693E38E4EC1D83CF6F /* OS.swift */,
 				AFEBAE7BFF2795CF2F83754516102A12 /* Screen.swift */,
 				D3A8C46A8B1AEFB646EE75D0B03B7D28 /* Type.swift */,
+				1C19B2141F71E3D200984A65 /* Environment.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -327,7 +330,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0910;
+				TargetAttributes = {
+					454CB7FE0DFE11099CE999127FB472AC = {
+						LastSwiftMigration = 0910;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -364,6 +372,7 @@
 				EBF60AFD3DE0450BFC19936E646F365B /* AssistantKit-dummy.m in Sources */,
 				F20F36963FB34AD2641A6835E5F74807 /* Bundle.swift in Sources */,
 				79691E91EF08D38980651D07DAA9071F /* Device.swift in Sources */,
+				1C19B2151F71E3D200984A65 /* Environment.swift in Sources */,
 				F6878D1C8A537F127A19CF7E34AC73D7 /* OS.swift in Sources */,
 				817A73933CB0E29EA922DF32F2BA2F55 /* Screen.swift in Sources */,
 				DC55809B3E15EF364145DD1E7B4E9575 /* Type.swift in Sources */,
@@ -429,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 761206A86B86467099DCE9D83E48B597 /* Pods-AssistantKit_Example.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -500,6 +510,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AC2F3B8A13E94C850CF00C9F8E1AB267 /* Pods-AssistantKit_Example.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -572,19 +583,29 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
@@ -598,6 +619,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -612,20 +634,30 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
