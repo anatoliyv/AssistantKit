@@ -53,26 +53,31 @@ public enum Screen: CGFloat {
 /// Comparing Screen and Screen
 
 public func ==(lhs: Screen, rhs: Screen) -> Bool {
+    guard lhs.rawValue > 0 && rhs.rawValue > 0 else { return false }
     return lhs.rawValue == rhs.rawValue
 }
 
 public func <(lhs: Screen, rhs: Screen) -> Bool {
+    guard lhs.rawValue > 0 && rhs.rawValue > 0 else { return false }
     return lhs.rawValue < rhs.rawValue
 }
 
 public func >(lhs: Screen, rhs: Screen) -> Bool {
+    guard lhs.rawValue > 0 && rhs.rawValue > 0 else { return false }
     return lhs.rawValue > rhs.rawValue
 }
 
 public func <=(lhs: Screen, rhs: Screen) -> Bool {
+    guard lhs.rawValue > 0 && rhs.rawValue > 0 else { return false }
     return lhs.rawValue <= rhs.rawValue
 }
 
 public func >=(lhs: Screen, rhs: Screen) -> Bool {
+    guard lhs.rawValue > 0 && rhs.rawValue > 0 else { return false }
     return lhs.rawValue >= rhs.rawValue
 }
 
-/// Comparing Screen and Device
+/// Comparing Screen and Version
 
 public func ==(lhs: Screen, rhs: Version) -> Bool {
     return lhs == rhs.screen
@@ -123,22 +128,27 @@ public enum Scale: CGFloat, Comparable, Equatable {
 }
 
 public func ==(lhs: Scale, rhs: Scale) -> Bool {
+    guard lhs.rawValue > 0 && rhs.rawValue > 0 else { return false }
     return lhs.rawValue == rhs.rawValue
 }
 
 public func <(lhs: Scale, rhs: Scale) -> Bool {
+    guard lhs.rawValue > 0 && rhs.rawValue > 0 else { return false }
     return lhs.rawValue < rhs.rawValue
 }
 
 public func >(lhs: Scale, rhs: Scale) -> Bool {
+    guard lhs.rawValue > 0 && rhs.rawValue > 0 else { return false }
     return lhs.rawValue < rhs.rawValue
 }
 
 public func <=(lhs: Scale, rhs: Scale) -> Bool {
+    guard lhs.rawValue > 0 && rhs.rawValue > 0 else { return false }
     return lhs.rawValue <= rhs.rawValue
 }
 
 public func >=(lhs: Scale, rhs: Scale) -> Bool {
+    guard lhs.rawValue > 0 && rhs.rawValue > 0 else { return false }
     return lhs.rawValue >= rhs.rawValue
 }
 
