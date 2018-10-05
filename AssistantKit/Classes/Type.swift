@@ -288,6 +288,15 @@ extension Device {
         case "iPhone10,3", "iPhone10,6":
             return .phoneX
 
+        case "iPhone11,2":
+            return .phoneXS
+
+        case "iPhone11,4", "iPhone11,6":
+            return .phoneXSMax
+
+        case "iPhone11,8":
+            return .phoneXR
+
 
         // Pads
         case "iPad1,1":
