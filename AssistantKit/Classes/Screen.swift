@@ -279,7 +279,7 @@ extension Device {
                 return value
             }
 
-            let actualDistance = fabs(key.rawValue - screen.rawValue)
+            let actualDistance = abs(key.rawValue - screen.rawValue)
             if actualDistance < distance {
                 nearestValue = value
                 distance = actualDistance
