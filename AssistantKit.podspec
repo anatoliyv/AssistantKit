@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AssistantKit'
-  s.version          = '0.4.1'
+  s.version          = '0.5.0'
   s.summary          = 'Easy way to detect and work with  device environments written in Swift'
 
   s.description      = <<-DESC
