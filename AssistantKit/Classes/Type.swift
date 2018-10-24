@@ -40,6 +40,9 @@ public enum Version: String {
     case phone8
     case phone8Plus
     case phoneX
+    case phoneXS
+    case phoneXSMax
+    case phoneXR
 
     case pad1
     case pad2
@@ -97,8 +100,15 @@ public enum Version: String {
              .phone8Plus:
             return .inches_5_5
 
-        case .phoneX:
-            return.inches_5_8
+        case .phoneX,
+             .phoneXS:
+            return .inches_5_8
+
+        case .phoneXR:
+            return .inches_6_1
+
+        case .phoneXSMax:
+            return .inches_6_5
             
         case .padMini,
              .padMini2,
@@ -117,7 +127,7 @@ public enum Version: String {
         case .padPro:
             return .inches_12_9
             
-        default:
+        case .unknown, .simulator:
             return .unknown
         }
     }
@@ -132,8 +142,7 @@ extension Device {
         uname(&systemInfo)
 
         if  let info = NSString(bytes: &systemInfo.machine, length: Int(_SYS_NAMELEN), encoding: String.Encoding.ascii.rawValue),
-            let code = String(validatingUTF8: info.utf8String!)
-        {
+            let code = String(validatingUTF8: info.utf8String!) {
             return code
         }
 
@@ -145,46 +154,16 @@ extension Device {
     /// - seealso: Type
     static public var type: Type {
         let versionCode = Device.versionCode
-
-        switch versionCode {
-        case "iPhone3,1", "iPhone3,2", "iPhone3,3",
-             "iPhone4,1", "iPhone4,2", "iPhone4,3",
-             "iPhone5,1", "iPhone5,2",
-             "iPhone5,3", "iPhone5,4",
-             "iPhone6,1", "iPhone6,2",
-             "iPhone7,2", "iPhone7,1",
-             "iPhone8,1", "iPhone8,2", "iPhone8,4",
-             "iPhone9,1", "iPhone9,2", "iPhone9,3", "iPhone9,4",
-             "iPhone10,1", "iPhone10,2", "iPhone10,3", "iPhone10,4", "iPhone10,5", "iPhone10,6":
+        if versionCode.starts(with: "iPhone") {
             return .phone
-
-        case "iPad1,1",
-             "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4",
-             "iPad3,1", "iPad3,2", "iPad3,3",
-             "iPad3,4", "iPad3,5", "iPad3,6",
-             "iPad4,1", "iPad4,2", "iPad4,3",
-             "iPad5,3", "iPad5,4",
-             "iPad2,5", "iPad2,6", "iPad2,7",
-             "iPad4,4", "iPad4,5", "iPad4,6",
-             "iPad4,7", "iPad4,8", "iPad4,9",
-             "iPad5,1", "iPad5,2",
-             "iPad6,3", "iPad6,4", "iPad6,7", "iPad6,8":
+        } else if versionCode.starts(with: "iPad") {
             return .pad
-
-        case "iPod1,1",
-             "iPod2,1",
-             "iPod3,1",
-             "iPod4,1",
-             "iPod5,1",
-             "iPod7,1":
+        } else if versionCode.starts(with: "iPod") {
             return .pod
-
-        case "i386", "x86_64":
+        } else if versionCode == "i386" || versionCode == "x86_64" {
             return .simulator
-
-        default:
-            return .unknown
         }
+        return .unknown
     }
 
     /// Return `true` for iPad-s
@@ -192,12 +171,12 @@ extension Device {
         return ( UIDevice.current.userInterfaceIdiom == .pad )
     }
 
-    /// Return `true` for iPahone-s
+    /// Return `true` for iPhone-s
     static public var isPhone: Bool {
         return !isPad
     }
 
-    /// Return `true` for iPahoneX
+    /// Return `true` for iPhoneX
     static public var isPhoneX: Bool {
         return isPhone && screen == .inches_5_8
     }
@@ -210,6 +189,51 @@ extension Device {
     /// Return `true` for Simulator
     static public var isSimulator: Bool {
         return type == .simulator
+    }
+
+    /// Return `true` if device has a notch
+    static public var isNotched: Bool {
+        switch Device.version {
+        case .phoneX,
+             .phoneXS,
+             .phoneXSMax,
+             .phoneXR:
+            return true
+        case .unknown,
+             .simulator,
+             .podTouch1,
+             .podTouch2,
+             .podTouch3,
+             .podTouch4,
+             .podTouch5,
+             .podTouch6,
+             .pad1,
+             .pad2,
+             .pad3,
+             .pad4,
+             .padAir,
+             .padAir2,
+             .padMini,
+             .padMini2,
+             .padMini3,
+             .padMini4,
+             .padPro,
+             .phone4,
+             .phone4S,
+             .phone5,
+             .phone5S,
+             .phone5C,
+             .phoneSE,
+             .phone6,
+             .phone6S,
+             .phone6Plus,
+             .phone6SPlus,
+             .phone7,
+             .phone7Plus,
+             .phone8,
+             .phone8Plus:
+            return false
+        }
     }
 
     // MARK: Version
@@ -263,6 +287,15 @@ extension Device {
 
         case "iPhone10,3", "iPhone10,6":
             return .phoneX
+
+        case "iPhone11,2":
+            return .phoneXS
+
+        case "iPhone11,4", "iPhone11,6":
+            return .phoneXSMax
+
+        case "iPhone11,8":
+            return .phoneXR
 
 
         // Pads

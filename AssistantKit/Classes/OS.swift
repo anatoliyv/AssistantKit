@@ -20,6 +20,7 @@ extension Device {
     public static var os9 = OSVersion("9")
     public static var os10 = OSVersion("10")
     public static var os11 = OSVersion("11")
+    public static var os12 = OSVersion("12")
 
     /// Struct to work with OS version
     public struct OSVersion {
