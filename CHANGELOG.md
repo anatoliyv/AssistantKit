@@ -1,6 +1,11 @@
 # Change Log
 
-## [0.3](https://github.com/anatoliyv/AssistantKit/tree/0.5.1) (2018-10-24)
+## [0.5.2](https://github.com/anatoliyv/AssistantKit/tree/0.5.2) (2018-10-24)
+[Full Changelog](https://github.com/anatoliyv/AssistantKit/compare/0.5.1...0.5.2)
+  
+  - Fix issue with `Device.isNotched` on simulator
+
+## [0.5.1](https://github.com/anatoliyv/AssistantKit/tree/0.5.1) (2018-10-24)
 [Full Changelog](https://github.com/anatoliyv/AssistantKit/compare/0.4...0.5.1)
   
   - Added `Device.isNotched` to detect new phone devices. Previously used `Devide.isPhoneX` is deprecated.
