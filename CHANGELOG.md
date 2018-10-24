@@ -1,12 +1,19 @@
 # Change Log
 
+## [0.3](https://github.com/anatoliyv/AssistantKit/tree/0.5.1) (2018-10-24)
+[Full Changelog](https://github.com/anatoliyv/AssistantKit/compare/0.4...0.5.1)
+  
+  - Added `Device.isNotched` to detect new phone devices. Previously used `Devide.isPhoneX` is deprecated.
+  - Update to Swift 4.2
+  - New devices added
+
 ## [0.3](https://github.com/anatoliyv/AssistantKit/tree/0.3) (2017-10-03)
- [Full Changelog](https://github.com/anatoliyv/AssistantKit/compare/0.2...0.3)
+[Full Changelog](https://github.com/anatoliyv/AssistantKit/compare/0.2...0.3)
 
  - Better system version implementation with `Device.OSVersion` model
 
 ## [0.2](https://github.com/anatoliyv/AssistantKit/tree/0.2) (2017-09-20)
- [Full Changelog](https://github.com/anatoliyv/AssistantKit/compare/0.0.2...0.2)
+[Full Changelog](https://github.com/anatoliyv/AssistantKit/compare/0.0.2...0.2)
 
  - Device Battery support added
  - Environment struct added to provide different env variables
