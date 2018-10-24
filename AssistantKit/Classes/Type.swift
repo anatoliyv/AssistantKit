@@ -194,47 +194,7 @@ extension Device {
 
     /// Return `true` if device has a notch
     static public var isNotched: Bool {
-        switch Device.version {
-        case .phoneX,
-             .phoneXS,
-             .phoneXSMax,
-             .phoneXR:
-            return true
-        case .unknown,
-             .simulator,
-             .podTouch1,
-             .podTouch2,
-             .podTouch3,
-             .podTouch4,
-             .podTouch5,
-             .podTouch6,
-             .pad1,
-             .pad2,
-             .pad3,
-             .pad4,
-             .padAir,
-             .padAir2,
-             .padMini,
-             .padMini2,
-             .padMini3,
-             .padMini4,
-             .padPro,
-             .phone4,
-             .phone4S,
-             .phone5,
-             .phone5S,
-             .phone5C,
-             .phoneSE,
-             .phone6,
-             .phone6S,
-             .phone6Plus,
-             .phone6SPlus,
-             .phone7,
-             .phone7Plus,
-             .phone8,
-             .phone8Plus:
-            return false
-        }
+        return isPhone && (screen == .inches_5_8 || screen == .inches_6_1 || screen == .inches_6_5)
     }
 
     // MARK: Version

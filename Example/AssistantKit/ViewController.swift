@@ -101,6 +101,7 @@ class ViewController: UIViewController {
         print("*** Device Type")
         print("type:                    " + String(Device.type.rawValue))
         print("version:                 " + String(Device.version.rawValue))
+        print("version code:            " + String(Device.versionCode))
         print("screen:                  " + String(describing: Device.screen))
         print("isPhone:                 " + String(Device.isPhone))
         print("isNotched:               " + String(Device.isNotched))
