@@ -177,6 +177,7 @@ extension Device {
     }
 
     /// Return `true` for iPhoneX
+    @available(*, deprecated: 0.5, message: ".isPhoneX deprecated. Use .isNotched instead")
     static public var isPhoneX: Bool {
         return isPhone && screen == .inches_5_8
     }
