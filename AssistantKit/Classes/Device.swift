@@ -192,7 +192,7 @@ extension Device {
     public struct Battery {
         
         /// Return battery state
-        static public var state: UIDeviceBatteryState {
+        static public var state: UIDevice.BatteryState {
             enableBatteryMonitoringIfNecessary()
             return UIDevice.current.batteryState
         }
