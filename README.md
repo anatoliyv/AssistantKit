@@ -222,6 +222,14 @@ Device.isLandscape // true if landscape
 Device.isPortrait  // true if portrait
 ```
 
+### Slide Over / Multitasking layout for iPad
+
+To detect slide over layout on iPads just call:
+
+```swift
+Device.isSlideOverLayout // true if iPad is in multitasking / slide over layout
+```
+
 ## Detecting and comparing iOS version
 
 You can detect iOS version in runtime. There are next different methods that will help you to

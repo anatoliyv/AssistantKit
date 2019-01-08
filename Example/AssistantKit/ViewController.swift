@@ -65,6 +65,7 @@ class ViewController: UIViewController {
         print("isRetina:                " + String(Device.isRetina))
         print("isPortrait:              " + String(Device.isPortrait))
         print("isLandscape:             " + String(Device.isLandscape))
+        print("isSlideOver:             " + String(Device.isSlideOverLayout))
         print()
 
         print("4.7 == 4.7:              " + String(describing: Screen.inches_4_7 == Screen.inches_4_7))
