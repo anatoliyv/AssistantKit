@@ -216,7 +216,7 @@ extension Device {
 /// Multitasking / Slide Over for iPad
 extension Device {
     /// Return `true` is iPad is in multitasking / slide over layout mode
-    public var isSlideOverLayout: Bool {
+    static public var isSlideOverLayout: Bool {
         guard Device.isPad else { return false }
         guard let rootWindow = UIApplication.shared.delegate?.window, let window = rootWindow else { return false }
         return !window.frame.equalTo(window.screen.bounds)

@@ -1,5 +1,5 @@
 PODS:
-  - AssistantKit (0.6.0)
+  - AssistantKit (0.6.1)
 
 DEPENDENCIES:
   - AssistantKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AssistantKit: ce3b31bcb9b8a1b04a8f6178dfd407687a5edba4
+  AssistantKit: ae90748155cf9ac2529d0b327ab28ce8c753a8ed
 
 PODFILE CHECKSUM: b8f5715bee3743aeac74f8c87d795c4865e92215
 
