@@ -4,8 +4,8 @@
 [![Version](https://img.shields.io/cocoapods/v/AssistantKit.svg?style=flat)](http://cocoapods.org/pods/AssistantKit)
 [![License](https://img.shields.io/cocoapods/l/AssistantKit.svg?style=flat)](http://cocoapods.org/pods/AssistantKit)
 [![Platform](https://img.shields.io/cocoapods/p/AssistantKit.svg?style=flat)](http://cocoapods.org/pods/AssistantKit)
-![](https://img.shields.io/badge/Supported-iOS8-4BC51D.svg?style=flat)
-![](https://img.shields.io/badge/Swift3-compatible-4BC51D.svg?style=flat)
+![](https://img.shields.io/badge/Supported-iOS8..iOS12-4BC51D.svg?style=flat)
+![](https://img.shields.io/badge/Swift4.2-compatible-4BC51D.svg?style=flat)
 
 
 Easy way to detect device environment:
@@ -52,40 +52,24 @@ You can check the exact device version with next code. All possible values of `v
 found in the `Version` enum, located in the `Version.swift` file.
 
 ```swift
-let version = Device.version
-
-switch version {
-case .phone4:       print("iPhone 4")
-case .phone4S:      print("iPhone 4S")
-case .phone5:       print("iPhone 5")
+switch Device.version {
 case .phone5C:      print("iPhone 5C")
-case .phone5S:      print("iPhone 5S")
 case .phone6:       print("iPhone 6")
 case .phone6S:      print("iPhone 6S")
 case .phone6Plus:   print("iPhone 6 Plus")
 case .phone6SPlus:  print("iPhone 6 S Plus")
+// and more iPhones
 
-case .pad1:         print("iPad 1")
-case .pad2:         print("iPad 2")
-case .pad3:         print("iPad 3")
-case .pad4:         print("iPad 4")
 case .padAir:       print("iPad Air")
 case .padAir2:      print("iPad Air 2")
 case .padMini:      print("iPad Mini")
-case .padMini2:     print("iPad Mini 2")
-case .padMini3:     print("iPad Mini 3")
-case .padMini4:     print("iPad Mini 4")
 case .padPro:       print("iPad Pro")
+// and more iPads
 
-case .podTouch1:    print("iPod 1")
-case .podTouch2:    print("iPod 2")
-case .podTouch3:    print("iPod 3")
-case .podTouch4:    print("iPod 4")
-case .podTouch5:    print("iPod 5")
 case .podTouch6:    print("iPod 6")
+// and more iPods
 
 case .simulator:    print("Simulator")
-
 default:            print("Unknown device")
 }
 ```
@@ -94,11 +78,11 @@ There are few properties that detect device type
 
 ```swift
 Device.isPhone     // true for iPhones even if it's Simulator
-Device.isPhoneX    // true for iPhoneX even if it's Simulator
 Device.isPad       // true for iPads even if it's Simulator
 Device.isPadPro    // true for iPad Pros even if it's Simulator
 Device.isPod       // true for iPods
 Device.isSimulator // true for Simulators
+Device.isNotched   // true for newer device version with notch
 ```
 
 To get raw device code use
@@ -113,11 +97,7 @@ Detecting screen size can be detected with next code. All possible values could 
 found in the `Screen` enum, located in `Screen.swift`.
 
 ```swift
-let screen = Device.screen
-
-switch screen {
-case .inches_3_5:  print("3.5 inches")
-case .inches_4_0:  print("4.0 inches")
+switch Device.screen {
 case .inches_4_7:  print("4.7 inches")
 case .inches_5_5:  print("5.5 inches")
 case .inches_7_9:  print("7.9 inches")
@@ -219,9 +199,7 @@ After that your font will be:
 ### Screen scale
 
 ```swift
-let scale = Device.scale
-
-switch scale {
+switch Device.scale {
 case .x1: print("Not retina")
 case .x2: print("Retina 2X")
 case .x3: print("Retina 3X")
@@ -244,6 +222,14 @@ Device.isLandscape // true if landscape
 Device.isPortrait  // true if portrait
 ```
 
+### Slide Over / Multitasking layout for iPad
+
+To detect slide over layout on iPads just call:
+
+```swift
+Device.isSlideOverLayout // true if iPad is in multitasking / slide over layout
+```
+
 ## Detecting and comparing iOS version
 
 You can detect iOS version in runtime. There are next different methods that will help you to
@@ -252,7 +238,7 @@ do it:
  ```swift
  Device.osVersion                               // Current version as a `OSVersion` model
 
- Device.osVersion == Device.os9                 // true if iOS 9.0
+ Device.osVersion == Device.os12                // true if iOS 12.0
  Device.osVersion >= Device.os9                 // true if iOS >= 9.0
  Device.osVersion < Device.os11                 // true if iOS < 11.0
  etc.
@@ -265,6 +251,7 @@ There are next constants representating Main iOS versions:
  Device.os9
  Device.os10
  Device.os11
+ Device.os12
  ```
 
 ### Working with directories

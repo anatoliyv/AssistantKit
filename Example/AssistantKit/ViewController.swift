@@ -65,6 +65,7 @@ class ViewController: UIViewController {
         print("isRetina:                " + String(Device.isRetina))
         print("isPortrait:              " + String(Device.isPortrait))
         print("isLandscape:             " + String(Device.isLandscape))
+        print("isSlideOver:             " + String(Device.isSlideOverLayout))
         print()
 
         print("4.7 == 4.7:              " + String(describing: Screen.inches_4_7 == Screen.inches_4_7))
@@ -101,9 +102,10 @@ class ViewController: UIViewController {
         print("*** Device Type")
         print("type:                    " + String(Device.type.rawValue))
         print("version:                 " + String(Device.version.rawValue))
+        print("version code:            " + String(Device.versionCode))
         print("screen:                  " + String(describing: Device.screen))
         print("isPhone:                 " + String(Device.isPhone))
-        print("isPhoneX:                " + String(Device.isPhoneX))
+        print("isNotched:               " + String(Device.isNotched))
         print("isPad:                   " + String(Device.isPad))
         print("isPadPro:                " + String(Device.isPadPro))
         print("isSimulator:             " + String(Device.isSimulator))
@@ -162,6 +164,9 @@ class ViewController: UIViewController {
         case .phone8:       print("iPhone 8")
         case .phone8Plus:   print("iPhone 8 Plus")
         case .phoneX:       print("iPhone X")
+        case .phoneXS:      print("iPhone XS")
+        case .phoneXSMax:   print("iPhone XS Max")
+        case .phoneXR:      print("iPhone X")
 
         case .pad1:         print("iPad 1")
         case .pad2:         print("iPad 2")
@@ -184,27 +189,30 @@ class ViewController: UIViewController {
             
         case .simulator:    print("Simulator")
             
-        default:            print("Unknown device")
+        case .unknown:      print("Unknown device")
         }
         
         let screen = Device.screen
         switch screen {
-        case .inches_3_5:  print("3.5 inches")
-        case .inches_4_0:  print("4.0 inches")
-        case .inches_4_7:  print("4.7 inches")
-        case .inches_5_5:  print("5.5 inches")
-        case .inches_7_9:  print("7.9 inches")
-        case .inches_9_7:  print("9.7 inches")
-        case .inches_12_9: print("12.9 inches")
-        default:           print("Other display")
+        case .inches_3_5:   print("3.5 inches")
+        case .inches_4_0:   print("4.0 inches")
+        case .inches_4_7:   print("4.7 inches")
+        case .inches_5_5:   print("5.5 inches")
+        case .inches_5_8:   print("5.8 inches")
+        case .inches_6_1:   print("6.1 inches")
+        case .inches_6_5:   print("6.5 inches")
+        case .inches_7_9:   print("7.9 inches")
+        case .inches_9_7:   print("9.7 inches")
+        case .inches_12_9:  print("12.9 inches")
+        case .unknown:      print("Other display")
         }
 
         let scale = Device.scale
         switch scale {
-        case .x1: print("Not retina")
-        case .x2: print("Retina 2X")
-        case .x3: print("Retina 3X")
-        default:  print("Unknown scale")
+        case .x1:       print("Not retina")
+        case .x2:       print("Retina 2X")
+        case .x3:       print("Retina 3X")
+        case .unknown:  print("Unknown scale")
         }
 
         let size = Device.size(phone: 13, pad: 15)
