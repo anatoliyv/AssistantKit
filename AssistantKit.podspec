@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AssistantKit'
-  s.version          = '0.6.2'
+  s.version          = '0.7.0'
   s.summary          = 'Easy way to detect and work with  device environments written in Swift'
 
   s.description      = <<-DESC
@@ -16,7 +16,7 @@ DESC
   s.author           = { 'Anatoliy Voropay' => 'anatoliy.voropay@gmail.com' }
   s.source           = { :git => 'https://github.com/anatoliyv/AssistantKit.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/anatoliy_v'
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.source_files = 'AssistantKit/Classes/**/*'
   s.frameworks = 'UIKit'
 end

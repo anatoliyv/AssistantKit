@@ -168,6 +168,9 @@ import UIKit
 /// Device.os9
 /// Device.os10
 /// Device.os11
+/// Device.os12
+/// Device.os13
+/// Device.os14
 /// ```
 public struct Device {
     // Implementations is grouped by extensions:
