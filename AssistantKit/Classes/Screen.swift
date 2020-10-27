@@ -29,6 +29,9 @@ public enum Screen: CGFloat {
     case inches_6_5  = 6.5
     case inches_7_9  = 7.9
     case inches_9_7  = 9.7
+    case inches_10_2 = 10.2
+    case inches_10_5 = 10.5
+    case inches_11 = 11.0
     case inches_12_9 = 12.9
 
     /// Return screen family
@@ -43,7 +46,7 @@ public enum Screen: CGFloat {
         case .inches_5_5, .inches_7_9, .inches_5_8, .inches_6_1, .inches_6_5:
             return .medium
 
-        case .inches_9_7, .inches_12_9:
+        case .inches_9_7, .inches_10_2, .inches_10_5, .inches_11, .inches_12_9:
             return .big
 
         case .unknown:
