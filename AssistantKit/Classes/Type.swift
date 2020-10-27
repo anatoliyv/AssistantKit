@@ -65,7 +65,7 @@ public enum Version: String {
     case padAir3
     case padPro9_7
     case padPro12_9
-    case padPro2th12_9
+    case padPro12_9_2th
     case padPro10_5
     case padPro11
     case padPro12_9_3th
@@ -158,7 +158,7 @@ public enum Version: String {
             return .inches_4_7
             
         case .padPro12_9,
-             .padPro2th12_9,
+             .padPro12_9_2th,
              .padPro12_9_3th,
              .padPro12_9_4th:
             return .inches_12_9
@@ -177,7 +177,7 @@ public enum Version: String {
 
 /// Used to determinate device type
 extension Device {
-
+    
     /// Return raw device version code string or empty string if any problem appears.
     static public var versionCode: String {
         var systemInfo = utsname()
@@ -219,7 +219,7 @@ extension Device {
     }
 
     /// Return `true` for iPhoneX
-    @available(*, deprecated: 0.5, message: ".isPhoneX deprecated. Use .isNotched instead")
+    @available(*, deprecated, message: ".isPhoneX deprecated. Use .isNotched instead")
     static public var isPhoneX: Bool {
         return isPhone && screen == .inches_5_8
     }
@@ -350,7 +350,7 @@ extension Device {
             return .padPro12_9
             
         case "iPad7,1", "iPad7,2":
-            return .padPro2th12_9
+            return .padPro12_9_2th
             
         case "iPad7,3", "iPad7,4":
             return .padPro10_5
@@ -454,7 +454,7 @@ extension Version {
         case .padAir3: return "iPad Air 3rd Gen"
         case .padPro9_7: return "iPad Pro (9.7 inch)"
         case .padPro12_9: return "iPad Pro (12.9 inch)"
-        case .padPro2th12_9: return "iPad Pro 2nd Gen"
+        case .padPro12_9_2th: return "iPad Pro 2nd Gen"
         case .padPro10_5: return "iPad Pro 10.5-inch"
         case .padPro11: return "iPad Pro 11 inch"
         case .padPro12_9_3th: return "iPad Pro 12.9 inch 3rd Gen"

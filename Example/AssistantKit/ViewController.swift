@@ -159,6 +159,7 @@ class ViewController: UIViewController {
         case .phone6Plus:   print("iPhone 6 Plus")
         case .phone6SPlus:  print("iPhone 6 S Plus")
         case .phoneSE:      print("iPhone SE")
+        case .phoneSE2:     print("iPhone SE 2")
         case .phone7:       print("iPhone 7")
         case .phone7Plus:   print("iPhone 7 Plus")
         case .phone8:       print("iPhone 8")
@@ -167,18 +168,37 @@ class ViewController: UIViewController {
         case .phoneXS:      print("iPhone XS")
         case .phoneXSMax:   print("iPhone XS Max")
         case .phoneXR:      print("iPhone X")
+        case .phone11:      print("iPhone 11")
+        case .phone11Pro:   print("iPhone 11 Pro")
+        case .phone11ProMax:    print("iPhone 11 Pro Max")
 
         case .pad1:         print("iPad 1")
         case .pad2:         print("iPad 2")
         case .pad3:         print("iPad 3")
         case .pad4:         print("iPad 4")
+        case .pad5:         print("iPad 5")
+        case .pad6:         print("iPad 6")
+        case .pad7:         print("iPad 7")
+
         case .padAir:       print("iPad Air")
         case .padAir2:      print("iPad Air 2")
+        case .padAir3:      print("iPad Air 3")
+
         case .padMini:      print("iPad Mini")
         case .padMini2:     print("iPad Mini 2")
         case .padMini3:     print("iPad Mini 3")
         case .padMini4:     print("iPad Mini 4")
-        case .padPro:       print("iPad Pro")
+        case .padMini5:     print("iPad Mini 5")
+
+        case .padPro9_7:    print("iPad Pro 9.7")
+        case .padPro10_5:   print("iPad Pro 10.5")
+        case .padPro11:     print("iPad Pro 11")
+        case .padPro11_2th: print("iPad Pro 11 2th")
+        case .padPro12_9:   print("iPad Pro 12 9\"")
+        case .padPro12_9_2th:   print("iPad Pro 12 9\" 2th")
+        case .padPro12_9_3th:   print("iPad Pro 12 9\" 3th")
+        case .padPro12_9_4th:   print("iPad Pro 12 9\" 4th")
+
 
         case .podTouch1:    print("iPod 1")
         case .podTouch2:    print("iPod 2")
@@ -186,6 +206,7 @@ class ViewController: UIViewController {
         case .podTouch4:    print("iPod 4")
         case .podTouch5:    print("iPod 5")
         case .podTouch6:    print("iPod 6")
+        case .podTouch7:    print("iPod 7")
             
         case .simulator:    print("Simulator")
             
@@ -203,6 +224,9 @@ class ViewController: UIViewController {
         case .inches_6_5:   print("6.5 inches")
         case .inches_7_9:   print("7.9 inches")
         case .inches_9_7:   print("9.7 inches")
+        case .inches_10_2:  print("10.2 inches")
+        case .inches_10_5:  print("10.5 inches")
+        case .inches_11:    print("11 inches")
         case .inches_12_9:  print("12.9 inches")
         case .unknown:      print("Other display")
         }
