@@ -191,6 +191,9 @@ extension Device {
 
         case 896:
             return ( scale == .x3 ? .inches_6_5 : .inches_6_1 )
+            
+        case 926:
+            return .inches_6_7
 
         case 1024:
             switch version {
