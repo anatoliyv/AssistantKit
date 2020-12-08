@@ -6,7 +6,7 @@
 //  Copyright © 2016 Anatoliy Voropay. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /// Detecting iOS version
 extension Device {
